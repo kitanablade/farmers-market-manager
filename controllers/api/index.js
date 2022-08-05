@@ -5,7 +5,7 @@ const vendorRoutes = require("./vendorRoutes");
 const eventRoutes = require("./eventRoutes");
 
 router.use("/event",eventRoutes);
-router.use("/vendor",vendorRoutes);
+router.use("/vendor",vendorsRoutes);
 router.use("/product",productRoutes);
 
 module.exports = router;
