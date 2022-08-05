@@ -42,14 +42,36 @@ const vendors = [
         vendorName:"Marination Ma Kai",
         description:"Hawaiian-themed food truck. Loco Moco, Kimchi Rice, Shaved Ice, and more.",
     },
+    {
+        vendorName:"Wise Guy",
+        description:"Sausage, pepper and onion hero in a hollowed-out baguette.",
+    },
 ]
 
-const products = [{
-    productName:"Yukon Gold Potatoes",
-    description:"",
-    image: "",
-},
+const products = [
+    {
+        productName:"Yukon Gold Potatoes",
+        description:"",
+        image: "",
+    },
+    {
+        productName:"Strawberries",
+        description:"",
+        image: "",
+    },
+    {
+        productName:"Hero Sandwich",
+        description:"",
+        image: "",
+    },
+    {
+        productName:"D-20 Dice",
+        description:"",
+        image: "",
+    },
 ]
+
+
 
 const seedMe = async ()=>{
     await sequelize.sync({force:true});

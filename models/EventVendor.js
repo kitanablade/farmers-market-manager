@@ -1,21 +1,21 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class EventtVendors extends Model {}
+class EventVendors extends Model {}
 
 EventVendors.init(
   {
     event_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'events',
+        model: 'Event',
         key: 'id',
       },
     },
     vendor_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'vendors',
+        model: 'Vendor',
         key: 'id',
       },
     },

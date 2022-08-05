@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {Products, Vendors} = require('../../models');
-const { belongsTo } = require('../../models/Vendors');
+const { belongsTo } = require('../../models/Vendor');
 
 router.get("/",(req,res)=>{
     Products.findAll({
@@ -16,7 +16,7 @@ router.get("/",(req,res)=>{
 
 router.post("/",(req,res)=>{
     Products.create({
-        productName:req.session.productName,
+        productName:req.body.productName,
         description:req.body.description,
         //vendors.Id
     }).then(data=>{

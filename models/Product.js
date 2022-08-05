@@ -1,10 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Products extends Model {}
 
-Products.init({
+class Product extends Model {}
 
+Product.init({
     productName: 
     {
          type: DataTypes.STRING,
@@ -12,20 +12,21 @@ Products.init({
          unique:false,  // so multiple vendors can add the same product with 
                         // different prices to the table?
     },
-    description: {
-        type:DataTypes.TEXT
+    description: 
+    {
+        type: DataTypes.TEXT,
+        allowNull:true,
     },
-    tag: 
+   tag: 
    {
     type:DataTypes.STRING,
    },
    stock:
    {
     type: DataTypes.BOOLEAN,
-    // defaultValue: false,
-   }
-},{
+    defaultValue: false,
+   },
+{
     sequelize
 });
-
-module.exports=Products
+module.exports=Product
