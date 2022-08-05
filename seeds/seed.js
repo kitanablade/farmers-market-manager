@@ -1,8 +1,8 @@
 const sequelize = require("../config/connection");
 
-const {Events, Vendors, Products} = require("../models");
+const {Event, Vendor, Product} = require("../models");
 
-const events = [
+const event = [
     {
         eventName:"Redmond Saturday Market",
         location:"Redmond, WA",
