@@ -26,6 +26,7 @@ Product.init({
     type: DataTypes.BOOLEAN,
     defaultValue: false,
    },
+},
 {
     sequelize
 });
