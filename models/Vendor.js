@@ -11,11 +11,6 @@ Vendors.init({
         type:DataTypes.STRING,
         allowNull:false,
    },
-   // Vendor admin's personal username for login
-    username: {
-         type: DataTypes.STRING,
-         allowNull:false
-    },
     email: {
         type: DataTypes.STRING,
         allowNull:false,
@@ -30,6 +25,7 @@ Vendors.init({
    },
    description:{
     type:DataTypes.TEXT,
+    default:""
 }
 },{
     sequelize,
