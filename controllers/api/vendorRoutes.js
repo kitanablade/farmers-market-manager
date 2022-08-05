@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const {Vendors, Customers} = require('../../models');
+const {Vendor} = require('../../models');
 
 router.get("/", (req, res) => {
-    Vendors.findAll ({
+    Vendor.findAll ({
         include: [Products]
     }).then(data => {
         res.json(data)
@@ -17,7 +17,7 @@ router.post("/", (req, res) => {
     if (!req.session.user){
         return res.status(403).json({message: "Please log-in, first!"})
     }
-        Vendors.create({
+        Vendor.create({
             UserId: req.sesssion.user.id,
             Content: req.body.content,
 
@@ -29,7 +29,7 @@ router.post("/", (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-    Vendors.destroy ({
+    Vendor.destroy ({
         UserId: req.session.user,
         content: req.body.content,
     }).then(data=>{

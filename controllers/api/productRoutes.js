@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const {Products, Vendors} = require('../../models');
+const {Product, Vendor} = require('../../models');
 const { belongsTo } = require('../../models/Vendor');
 
 router.get("/",(req,res)=>{
-    Products.findAll({
-        include:[Vendors]
+    Product.findAll({
+        include:[Vendor]
         //WHERE event = blah
     }).then(data=>{
         res.json(data)
@@ -15,10 +15,10 @@ router.get("/",(req,res)=>{
 })
 
 router.post("/",(req,res)=>{
-    Products.create({
+    Product.create({
         productName:req.body.productName,
         description:req.body.description,
-        //vendors.Id
+        //vendor.Id
     }).then(data=>{
         res.json(data)
     }).catch(err=>{
@@ -27,17 +27,17 @@ router.post("/",(req,res)=>{
 })
 
 router.delete("/:id",(req,res)=>{
-    // if(!req.session.vendors){
-    //     if(!req.session.vendors){
+    // if(!req.session.vendor){
+    //     if(!req.session.vendor){
     //         res.redirect("/login")
     //     }
     // }
-    // if(!req.Products.id.belongsTo(req.body.user)){
-    //     return res.status(403).json({msg:"Can't delete another vendor's products"})
+    // if(!req.Product.id.belongsTo(req.body.user)){
+    //     return res.status(403).json({msg:"Can't delete another vendor's product"})
     // }
-    Products.destroy({
+    Product.destroy({
         where:{
-            id:req.session.Products.id
+            id:req.session.Product.id
                 }
     }).then(data=>{
         res.json(data)
