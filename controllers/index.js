@@ -45,4 +45,13 @@ router.get("/event/vendors",(req,res)=>{
     res.render("event")
 })
 
+//products by events
+router.get("/",(req,res)=>{
+    Event.findAll({
+        include:[Vendor,Product]
+    }).then(data=>{
+        res.json(data);
+    })
+})
+
 module.exports = router;
