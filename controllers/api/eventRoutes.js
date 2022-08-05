@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const {Product, Vendor} = require('../../models');
+const {Event,Vendor} = require('../../models');
 
-
-//get all Products
+//get all events
 router.get("/",(req,res)=>{
-    Product.findAll({
+    Event.findAll({
         include:[Vendor]
     }).then(data=>{
         res.json(data)
@@ -14,9 +13,9 @@ router.get("/",(req,res)=>{
     })
 })
 
-//get one Product
+//return one vendor by id
 router.get("/:id",(req,res)=>{
-    Product.findOne({
+    Event.findOne({
         where:{
             id: req.params.id
         },
