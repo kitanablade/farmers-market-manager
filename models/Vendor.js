@@ -6,7 +6,12 @@ const sequelize = require('../config/connection');
 class Vendors extends Model {}
 
 Vendors.init({
-    // add properites here, ex:
+    // Proper name of vendor for public display
+    vendorName:{
+        type:DataTypes.STRING,
+        allowNull:false,
+   },
+   // Vendor admin's personal username for login
     username: {
          type: DataTypes.STRING,
          allowNull:false
@@ -22,7 +27,10 @@ Vendors.init({
         validate:{
             len:[8]
         }
-   }
+   },
+   description:{
+    type:DataTypes.TEXT,
+}
 },{
     sequelize,
     hooks:{
