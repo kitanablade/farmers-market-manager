@@ -1,0 +1,66 @@
+:root{
+    --primary: #6E9075;
+    --secondary: #856A5D;
+    --tertiary: #3A332C;
+    --light: #ffff;
+}
+
+body{
+    background: rgb(220, 228, 222);
+    flex-direction: column;
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Questrial', sans-serif;
+}
+
+header{
+    color: var(--light);
+    background-image: url(./images/pexels-nicole-ashley-rahayu-densmoor-5441998.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--primary);
+    margin-bottom: 5%;
+    padding-bottom: 5%;
+    align-items: center;
+    
+}
+
+header h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));
+}
+
+aside{
+   background-color: var(--primary);
+   padding: 3%;
+   text-align: center;
+   display: flex;
+   display: inline-block;
+   flex-direction: column;
+   justify-content: flex-start;
+   margin-bottom: 15%;
+   border-radius: 5%;
+   box-shadow: 2px 2px 3px 2px var(--tertiary);
+}
+
+footer{
+    flex-shrink: 0;
+    padding: 20px;
+    color: var(--light);
+    background-color: var(--primary);
+    
+}
+
+.sidebar{
+    padding: 5%;
+    margin: 3px 3px;
+    border-bottom:2px solid #ffff;
+}
+
+aside a{
+    text-decoration: none;
+    color: var(--light);
+}
+
+.event-Card{
+    border: 2px black solid;
+}

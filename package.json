@@ -7,9 +7,29 @@
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
-    "handlebars": "^4.7.7",
     "mysql2": "^2.3.3",
     "sequelize": "^6.21.3",
     "session": "^0.1.0"
-  }
+  },
+  "name": "farmers-market-manager",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node index.js",
+    "seed":"node seeds"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kitanablade/farmers-market-manager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kitanablade/farmers-market-manager/issues"
+  },
+  "homepage": "https://github.com/kitanablade/farmers-market-manager#readme"
 }
