@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const apiRoutes = require("./api");
+const handlebrs = require('express-handlebars')
 
 //renders events
 router.get('/',(req,res)=>{
@@ -42,6 +43,15 @@ router.get("/update-product",(req,res)=>{
 //render vendors by event
 router.get("/event/vendors",(req,res)=>{
     res.render("event")
+})
+
+//products by events
+router.get("/",(req,res)=>{
+    Event.findAll({
+        include:[Vendor,Product]
+    }).then(data=>{
+        res.json(data);
+    })
 })
 
 module.exports = router;

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const {Product,Vendor} = require('../../models');
+// const {Product,Vendor} = require('../../models');
+const {Event, Vendor, Product} = require('../../models');
 
 
 //get all vendors
