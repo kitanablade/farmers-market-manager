@@ -3,10 +3,11 @@ const router = express.Router();
 const {Product, Vendor} = require('../../models');
 const { belongsTo } = require('../../models/Vendor');
 
+
+//get all Products
 router.get("/",(req,res)=>{
     Product.findAll({
         include:[Vendor]
-        //WHERE event = blah
     }).then(data=>{
         res.json(data)
     }).catch(err=>{
@@ -38,14 +39,21 @@ router.delete("/:id",(req,res)=>{
     Product.destroy({
         where:{
             id:req.session.Product.id
-                }
+                },
+            });
+            })
+//get one Product
+router.get("/:id",(req,res)=>{
+    Product.findOne({
+        where:{
+            id: req.params.id
+        },
+        include:[Vendor]
     }).then(data=>{
         res.json(data)
     }).catch(err=>{
-        res.status(500).json({msg:"An error has occurred: ",err})
+        res.status(500).json({msg:"ERROR",err})
     })
 })
-
-
 
 module.exports = router;

@@ -14,12 +14,8 @@ const express = require('express');
 const router = express.Router();
 const {Event, Vendor, Product} = require('../../models');
 
-router.get("/",(req,res)=>{
-    Event.findAll({
-        include:[Vendor,Product]
-    }).then(data=>{
-        res.json(data);
-    })
-})
+router.use("/event",eventRoutes);
+router.use("/vendor",vendorsRoutes);
+router.use("/product",productRoutes);
 
 module.exports = router;
