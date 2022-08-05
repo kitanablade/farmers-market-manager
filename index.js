@@ -9,7 +9,20 @@ const allRoutes = require("./controllers");
 // =============================================================
 const app = express();
 const PORT = process.env.PORT || 3000;
+// Requiring our models for syncing
+const { Caretaker,Farmer,Pig,Tag} = require('./models');
 
+// const sess = {
+//     secret: 'Super secret secret',
+//     cookie: {},
+//     resave: false,
+//     saveUninitialized: true,
+//     store: new SequelizeStore({
+//         db: sequelize
+//     })
+// };
+
+// app.use(session(sess));
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -29,13 +42,13 @@ app.use(express.json());
 // app.use(session(sess));
 
 // Static directory
-app.use(express.static("public"));
+app.use(express.static('public'));
 
-const hbs = exphbs.create({});
-app.engine("handlebars", hbs.engine);
-app.set("view engine", "handlebars");
+// const hbs = exphbs.create({});
+// app.engine('handlebars', hbs.engine);
+// app.set('view engine', 'handlebars');
 
-app.use("/", allRoutes);
+app.use('/',allRoutes);
 
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)

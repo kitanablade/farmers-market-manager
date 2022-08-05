@@ -1,24 +1,29 @@
 const Vendor = require("./Vendor");
 const Product = require("./Product");
 const Event = require("./Event");
-const EventVendor = require(".EventVendor");
 
-// Vendors belongToMany Events (through EventVendor)
+// Vendor belongToMany Event (through EventVendor)
 Vendor.belongsToMany(Event, {
-    through: EventVendor,
-    foreignKey: 'event_id',
+  through: "EventVendor",
+});
+
+// Event belongToMany Vendor (through EventVendor)
+Event.belongsToMany(Vendor, {
+  through: "EventVendor",
+});
+
+// Vendor belongToMany Event (through EventVendor)
+Product.belongsToMany(Vendor, {
+    through: "ProductVendor",
   });
   
-  // Events belongToMany Vendors (through EventVendors)
-  Event.belongsToMany(Vendor, {
-    through: EventVendor,
-    foreignKey: 'vendor_id',
+  // Event belongToMany Vendor (through EventVendor)
+  Vendor.belongsToMany(Product, {
+    through: "ProductVendor",
   });
-  
 
-
-module.exports={
-    Event,
-    Vendor,
-    Product,
-}
+module.exports = {
+  Event,
+  Vendor,
+  Product,
+};
