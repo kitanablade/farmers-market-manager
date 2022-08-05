@@ -24,7 +24,7 @@ router.post("/", (req, res) => {
         }).then (data => {
             res.json(data)
         }) .catch (err => {
-            res.status(500).json({message: "Please log-in, first!"})
+            res.status(500).json({message: ""})
         })
 });
 
