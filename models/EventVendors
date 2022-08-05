@@ -1,0 +1,32 @@
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
+
+class EventtVendors extends Model {}
+
+EventVendors.init(
+  {
+    event_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'events',
+        key: 'id',
+      },
+    },
+    vendor_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'vendors',
+        key: 'id',
+      },
+    },
+  },
+  {
+    sequelize,
+    // timestamps: false,
+    // freezeTableName: true,
+    // underscored: true,
+    // modelName: 'event_vendors',
+  }
+);
+
+module.exports = ProductTag;
