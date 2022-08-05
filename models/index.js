@@ -13,8 +13,8 @@ Event.belongsToMany(Vendor,{
 Vendor.hasMany(Product)
 Product.belongsTo(Vendor)
 
-module.exports={
-    Event,
-    Vendor,
-    Product,
-}
+module.exports = {
+  Event,
+  Vendor,
+  Product,
+};

@@ -1,16 +1,18 @@
+
 const express = require('express');
 // const session = require('express-session');
 const exphbs = require('express-handlebars');
 const allRoutes = require('./controllers');
 
 const sequelize = require('./config/connection');
-// const SequelizeStore = require('connect-session-sequelize')(session.Store);
+// const SequelizeStore = require('connect-session-sequelize')(session.Store)
 
 // Sets up the Express App
 // =============================================================
 const app = express();
 const PORT = process.env.PORT || 3000;
 // Requiring our models for syncing
+
 const { Event,Vendor,Product} = require('./models');
 
 // const sess = {
@@ -27,6 +29,7 @@ const { Event,Vendor,Product} = require('./models');
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 
 // Static directory
 app.use(express.static('public'));
