@@ -1,7 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const apiRoutes = require("./api");
+const frontend = require("./frontend");
 const handlebrs = require('express-handlebars')
+
+router.use(apiRoutes, "/api")
+router.use(frontend)
+
 
 //renders events
 router.get('/',(req,res)=>{
