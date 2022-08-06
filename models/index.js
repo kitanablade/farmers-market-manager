@@ -1,7 +1,7 @@
 const Vendor = require("./Vendor");
 const Product = require("./Product");
 const Event = require("./Event");
-const EventVendor = require(".EventVendor");
+const EventVendor = require("./EventVendor");
 
 // Vendors belongToMany Events (through EventVendor)
 Vendor.belongsToMany(Event, {

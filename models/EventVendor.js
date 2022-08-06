@@ -29,4 +29,4 @@ EventVendors.init(
   }
 );
 
-module.exports = ProductTag;
+module.exports = EventVendors;
