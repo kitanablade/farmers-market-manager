@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const apiRoutes = require("./api");
-const handlebrs = require('express-handlebars');
-const {Event, Product, Vendor}= require('../models');
+const handlebrs = require('express-handlebars')
 
+//renders events
+router.get('/',(req,res)=>{
+    res.render("home")
+})
 
 //log in route
 router.get("/login",(req,res)=>{

@@ -5,7 +5,7 @@ const exphbs = require('express-handlebars');
 const allRoutes = require('./controllers');
 
 const sequelize = require('./config/connection');
-const SequelizeStore = require('connect-session-sequelize')(session.Store)
+// const SequelizeStore = require('connect-session-sequelize')(session.Store)
 
 // Sets up the Express App
 // =============================================================
@@ -28,12 +28,12 @@ const sess = {
 app.use(session(sess));
 
 // Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.use(express.urlencoded({ extended: true }));
 
 // Static directory
-app.use(express.static('public'));
+// app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 const hbs = exphbs.create({});
 app.engine('handlebars', hbs.engine);
