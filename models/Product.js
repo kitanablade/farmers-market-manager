@@ -17,11 +17,11 @@ Product.init({
         type: DataTypes.TEXT,
         allowNull:true,
     },
-   tag: 
-   {
-    type:DataTypes.STRING,
-   },
-   stock:
+//    tag: 
+//    {
+//     type:DataTypes.STRING,
+//    },
+   inStock:
    {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
