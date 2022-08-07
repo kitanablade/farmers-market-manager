@@ -4,8 +4,8 @@ const apiRoutes = require("./api");
 const frontend = require("./frontend");
 const handlebrs = require('express-handlebars')
 
-router.use(apiRoutes, "/api")
-router.use(frontend)
+router.use("/api", apiRoutes)
+ router.use("/", frontend)
 
 
 //renders events
