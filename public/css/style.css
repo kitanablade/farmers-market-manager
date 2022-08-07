@@ -18,8 +18,8 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
     background-color: var(--primary);
-    margin-bottom: 5%;
-    padding-bottom: 5%;
+    margin-bottom: 1%;
+    padding-bottom: 3%;
     align-items: center;
 
 }
@@ -57,10 +57,10 @@ aside {
 
 footer {
     flex-shrink: 0;
-    padding: 20px;
+    padding: 5px;
     color: var(--light);
     background-color: var(--primary);
-
+    margin-top:1%;
 }
 
 .sidebar {
@@ -110,4 +110,24 @@ aside a {
     --bs-btn-disabled-bg: #549374;
     --bs-btn-disabled-border-color: #549374;
     --bs-dropdown-link-active-bg: #03270e;
+}
+
+main{
+    
+    display: flex;
+    justify-content: space-around;
+    flex-direction: wrap;
+}
+
+
+
+.card{
+    margin-bottom: 2px;
+    background-color: var(--secondary);
+    padding: 5px;
+}
+
+.card a{
+    color: var(--primary);
+    
 }
