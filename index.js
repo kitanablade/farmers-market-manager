@@ -5,8 +5,8 @@ const exphbs = require('express-handlebars');
 const allRoutes = require('./controllers');
 
 const sequelize = require('./config/connection');
-// const SequelizeStore = require('connect-session-sequelize')(session.Store)
-
+const SequelizeStore = require('connect-session-sequelize')(session.Store)
+const path = require('path');
 // Sets up the Express App
 // =============================================================
 const app = express();
@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3000;
 const { Event,Vendor,Product} = require('./models');
 
 const sess = {
-    // secret: 'Super secret secret',
+    secret: 'Super secret secret',
     cookie: {},
     resave: false,
     saveUninitialized: true,
@@ -26,7 +26,6 @@ const sess = {
 };
 
 app.use(session(sess));
-
 // Sets up the Express app to handle data parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
