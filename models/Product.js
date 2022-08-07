@@ -28,6 +28,7 @@ Product.init({
    },
 },
 {
-    sequelize
+    sequelize,
+    timestamps: false,
 });
 module.exports=Product
