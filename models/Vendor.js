@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require("bcryptjs")
+// const bcrypt = require("bcryptjs")
 const sequelize = require('../config/connection');
 
 
@@ -29,12 +29,12 @@ Vendors.init({
 }
 },{
     sequelize,
-    hooks:{
-        beforeCreate:userObj=>{
-            userObj.password = bcrypt.hashSync(userObj.password,8);
-            return userObj;
-        }
-    }
+    // hooks:{
+    //     beforeCreate:userObj=>{
+    //         userObj.password = bcrypt.hashSync(userObj.password,8);
+    //         return userObj;
+    //     }
+    // }
 });
 
 module.exports= Vendors;

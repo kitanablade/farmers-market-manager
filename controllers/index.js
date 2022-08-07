@@ -1,11 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const apiRoutes = require("./api");
-const handlebrs = require('express-handlebars')
+const handlebrs = require('express-handlebars');
+const {Event, Product, Vendor}= require('../models');
 
 //renders events
 router.get('/',(req,res)=>{
-    res.render("home")
+    Event.findAll({
+    }).then(data=>{
+        const hbsData = data.map(modelIns=>modelIns.toJSON())
+        res.render("home",{
+            events:hbsData
+        })
+    })
+
 })
 
 //log in route
@@ -40,17 +48,25 @@ router.get("/update-product",(req,res)=>{
     res.render("updateProduct")
 })
 
-//render vendors by event
-router.get("/event/vendors",(req,res)=>{
-    res.render("event")
-})
+// //render vendors by event
+// router.get("/event/vendors",(req,res)=>{
+//     res.render("event")
+// })
 
 //products by events
-router.get("/",(req,res)=>{
-    Event.findAll({
-        include:[Vendor,Product]
+//I think this route needs to be like:
+router.get("/events/:id",(req,res)=>{
+    Event.findByPk(req.params.id,{
+        include:[{
+            model: Vendor,
+            include: [Product]
+        }]
     }).then(data=>{
-        res.json(data);
+        const hbsData = data.map(modelIns=>modelIns.toJSON())
+        console.log(hbsData);
+        res.render("events",{
+            events:hbsData
+        })
     })
 })
 

@@ -1,9 +1,8 @@
-{{!-- <div>
-    <div>
-        <h2>Events</h2>
+<section id="eventsFlex">
+    {{#each events}}
+    <div class= "card">
+        <h3><a href="/events/{{id}}">{{eventName}}</a></h3>
+        <h4>{{description}}</h4>
     </div>
-    {{#each events as |event|}}
-    <div class="event-Card">
-        {{event.event_name}}
-    </div>
-</div> --}}
+    {{/each}}
+</section>
