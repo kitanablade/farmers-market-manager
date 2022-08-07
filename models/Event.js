@@ -21,4 +21,4 @@ Events.init({
     timestamps: false,
 });
 
-module.exports=Events
+module.exports=Events;

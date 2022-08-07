@@ -4,6 +4,7 @@ const apiRoutes = require("./api");
 const handlebrs = require('express-handlebars')
 
 router.use("/api",apiRoutes)
+router.use(frontend)
 
 //renders events
 router.get('/',(req,res)=>{
@@ -12,7 +13,7 @@ router.get('/',(req,res)=>{
 
 //log in route
 router.get("/login",(req,res)=>{
-    res.render("login")
+    res.render("login")             // Don't think we need this BECAUSE there is already a form that pops up when you click the login button
 })
 
 //vendor sign up route
@@ -37,23 +38,66 @@ router.get("/update-product",(req,res)=>{
     res.render("updateProduct")
 })
 
-//render event by id
+//I dont think we need this because you should only get to update a product IF you are logged in as a vendor...
 router.get("/update-product",(req,res)=>{
     res.render("updateProduct")
 })
 
-//render vendors by event
-router.get("/event/vendors",(req,res)=>{
-    res.render("event")
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//renders events
+router.get('/',(req,res)=>{
+    Event.findAll({
+    }).then(data=>{
+        const hbsData = data.map(modelIns=>modelIns.toJSON())
+        res.render("home",{
+            events:hbsData
+        })
+    })
+
 })
 
-//products by events
-router.get("/",(req,res)=>{
-    Event.findAll({
-        include:[Vendor,Product]
+//find one event's vendors (hoping to add products associated with each vendor)
+router.get("/event/:id",(req,res)=>{
+    Event.findByPk(req.params.id,{
+        include:[Vendor]
     }).then(data=>{
-        res.json(data);
+        const hbsData = data.toJSON()
+        console.log(hbsData)
+        res.render("eventPage",hbsData)
+    })
+});
+
+//Vendor List: Includes all vendors
+router.get('/vendor',(req,res)=>{
+    Vendor.findAll({
+    }).then(data=>{
+        const hbsData = data.map(modelIns=>modelIns.toJSON())
+        res.render("vendors",{
+            vendors:hbsData
+        })
+    })
+});
+
+//get one Vendor. Shows related products
+
+router.get('/vendor/:id',(req, res)=>{
+    Vendor.findByPk(req.params.id,{
+        include:[Product]
+    }).then(data=>{
+        const hbsData = data.toJSON()
+        console.log(hbsData)
+        res.render("vendorPage",hbsData)
     })
 })
 
+router.get('/event',(req,res)=>{
+    Event.findAll({
+    }).then(data=>{
+        const hbsData = data.map(modelIns=>modelIns.toJSON())
+        res.render("allEvents",{
+            events:hbsData
+        })
+    })
+});
 module.exports = router;
