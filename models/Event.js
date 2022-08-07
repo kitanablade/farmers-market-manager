@@ -17,7 +17,8 @@ Events.init({
     type: DataTypes.TEXT,
    }
 },{
-    sequelize
+    sequelize,
+    timestamps: false,
 });
 
 module.exports=Events
