@@ -20,4 +20,4 @@ Events.init({
     sequelize
 });
 
-module.exports=Events
+module.exports=Events;

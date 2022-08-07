@@ -18,7 +18,7 @@ router.get('/',(req,res)=>{
 
 //log in route
 router.get("/login",(req,res)=>{
-    res.render("login")
+    res.render("login")             // Don't think we need this
 })
 
 //vendor sign up route
@@ -54,19 +54,13 @@ router.get("/update-product",(req,res)=>{
 // })
 
 //products by events
-//I think this route needs to be like:
-router.get("/events/:id",(req,res)=>{
+router.get("/event/:id",(req,res)=>{
     Event.findByPk(req.params.id,{
-        include:[{
-            model: Vendor,
-            include: [Product]
-        }]
+        include:[Vendor]
     }).then(data=>{
-        const hbsData = data.map(modelIns=>modelIns.toJSON())
-        console.log(hbsData);
-        res.render("events",{
-            events:hbsData
-        })
+        const hbsData = data.toJSON()
+        console.log(hbsData)
+        res.render("eventPage",hbsData)
     })
 })
 
