@@ -8,10 +8,6 @@ const {Event, Product, Vendor} = require('../models');
 router.use("/api",apiRoutes)
 //router.use(frontend)
 
-//renders events
-router.get('/',(req,res)=>{
-    res.render("home")
-})
 
 //log in route
 router.get("/login",(req,res)=>{
