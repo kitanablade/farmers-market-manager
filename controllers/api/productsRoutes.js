@@ -28,14 +28,14 @@ router.post("/",(req,res)=>{
 })
 
 router.delete("/:id",(req,res)=>{
-    // if(!req.session.vendor){
-    //     if(!req.session.vendor){
-    //         res.redirect("/login")
-    //     }
-    // }
-    // if(!req.Product.id.belongsTo(req.body.user)){
-    //     return res.status(403).json({msg:"Can't delete another vendor's product"})
-    // }
+    if(!req.session.vendor){
+        if(!req.session.vendor){
+            res.redirect("/login")
+        }
+    }
+    if(!req.Product.id.belongsTo(req.body.user)){
+        return res.status(403).json({msg:"Can't delete another vendor's product"})
+    }
     Product.destroy({
         where:{
             id:req.session.Product.id
