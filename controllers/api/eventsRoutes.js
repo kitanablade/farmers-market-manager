@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {Event,Vendor,EventVendor} = require('../../models');
+const {Event,Vendor,Product} = require('../../models');
 
 //get all events
 router.get("/",(req,res)=>{
@@ -39,6 +39,19 @@ router.post("/",(req,res)=>{
       vendorIds:req.body.vendorIds,
     }).then(data=>{
         res.json(data)
+    }).catch(err=>{
+        res.status(500).json({msg:"An error has occurred: ",err})
+    })
+})
+
+router.post("/:eventId/vendors/:vendorId",(req,res)=>{
+    Event.findByPk(req.params.eventId).then(data=>{
+        data.addVendor(req.params.vendorId).then(()=>{
+            res.json(data)
+        }).catch(err=>{
+            console.log(err);
+            res.status(400).json({msg:"Cannot add this vendor"})
+        })
     }).catch(err=>{
         res.status(500).json({msg:"An error has occurred: ",err})
     })

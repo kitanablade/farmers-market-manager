@@ -29,6 +29,7 @@ Vendors.init({
 }
 },{
     sequelize,
+    timestamps: false,
     // hooks:{
     //     beforeCreate:userObj=>{
     //         userObj.password = bcrypt.hashSync(userObj.password,8);
