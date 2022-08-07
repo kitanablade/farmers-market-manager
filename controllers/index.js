@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const apiRoutes = require("./api");
 const handlebrs = require('express-handlebars');
+const {Event, Product, Vendor} = require('../models');
 //const frontend = require('./frontend')
 
 router.use("/api",apiRoutes)
