@@ -11,8 +11,8 @@ const path = require('path');
 // =============================================================
 const app = express();
 const PORT = process.env.PORT || 3000;
-// Requiring our models for syncing
 
+// Requiring our models for syncing
 const { Event,Vendor,Product} = require('./models');
 
 const sess = {
