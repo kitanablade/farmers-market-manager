@@ -7,7 +7,7 @@ const {Event, Vendor, Product} = require('../../models');
 //get all vendors
 router.get("/",(req,res)=>{
     Vendor.findAll({
-        include:[Product]
+        include:[Event,Product]
     }).then(data=>{
         res.json(data)
     }).catch(err=>{
@@ -44,6 +44,19 @@ router.post("/",(req,res)=>{
         console.log(req.session)
     }).catch(err=>{
         res.status(500).json({msg:"ERROR",err})
+    })
+})
+
+router.post("/:vendorId/events/:eventId",(req,res)=>{
+    Vendor.findByPk(req.params.vendorId).then(data=>{
+        data.addEvent(req.params.eventId).then(()=>{
+            res.json(data)
+        }).catch(err=>{
+            console.log(err);
+            res.status(400).json({msg:"Cannot add this event"})
+        })
+    }).catch(err=>{
+        res.status(500).json({msg:"An error has occurred: ",err})
     })
 })
 
