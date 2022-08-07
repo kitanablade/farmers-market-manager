@@ -6,7 +6,7 @@ const allRoutes = require('./controllers');
 
 const sequelize = require('./config/connection');
 // const SequelizeStore = require('connect-session-sequelize')(session.Store)
-
+const path = require('path');
 // Sets up the Express App
 // =============================================================
 const app = express();
