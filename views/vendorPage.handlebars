@@ -16,9 +16,13 @@
 <section id="eventsProducts">
     
         <h3>{{vendorName}}</h3>
-        {{#each vendor.Product}}
+        {{#each Products}}
         <div class= "vendorCard">
-        <h4>{{this.name}}</h4>
+        <h4>{{productName}}</h4>
+        <ul>
+            <li>Description: {{description}}</li>
+            <li>In Stock: {{inStock}}</li>
+        </ul>
         </div>
         {{/each}}
     
