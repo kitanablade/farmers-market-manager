@@ -16,10 +16,13 @@
 <section id="eventsProducts">
     
         <h3>Vendors at {{eventName}}</h3>
-        {{#each event.vendor}}
+        <ul>
+        {{#each Vendors}}
         <div class= "vendorCard">
-        <h4>{{this.name}}</h4>
+            <li><a href="/vendor/{{id}}">{{vendorName}}</a></li><br>
+            <p>{{description}}</p>            
         </div>
         {{/each}}
+        </ul>
     
 </section>
