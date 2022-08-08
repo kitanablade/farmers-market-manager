@@ -85,17 +85,33 @@ const products = [
 
 const seedMe =async()=>{
     await sequelize.sync({force:true});
-    await Event.bulkCreate(events);
-    await Vendor.bulkCreate(vendors);
-    await Product.bulkCreate(products);
-    // const productObj = await Event.bulkCreate(products);
-    // const vendorObj = await Vendor.bulkCreate(vendors);
+
+    const eventObj = await Event.bulkCreate(events);
+    const vendorObj = await Vendor.bulkCreate(vendors,{individualHooks:true});
+    //const productObj = await Product.bulkCreate(products);
+
+    const redmondMkt = eventObj[0];
+    //const goneToSeed = vendorObj[0];
+    // const seafair = eventObj[2];
+    // const pax = eventObj[3];
+
+    // const goneToSeed = vendorObj[1];
+    // const wargamer = vendorObj[2];
+    // const marination = vendorObj[3];
+    // const wiseGuy = vendorObj[4];
+
+    // const potatoes = productObj[0];
+    // const strawberries = productObj[1];
+    // const heroSand = productObj[2];
+    // const dice = productObj[3];
+
+    await redmondMkt.addVendor([0,1,4]);
+    
+    // await seafair.addVendors([2,3,4])
+    // await pax.addVendors([2,4])
+
     console.log("seeding complete!")
-    //const firstProduct = productObj[0]
-    // const  firstVendor = vendorObj[0];
-    // await firstVendor.addEvent(2)
-    // await firstVendor.addProduct([1,2])
-    // process.exit(0);
+    process.exit(0);
 }
 
 
