@@ -4,6 +4,12 @@ const handlebrs = require('express-handlebars');
 const {Event, Product, Vendor} = require('../../models');
 
 
+//renders sign-up page
+
+router.get("/vendor/signup", (req, res)=>{
+    res.render("newUserPage")
+})
+
 //renders events
 router.get('/',(req,res)=>{
     Event.findAll({

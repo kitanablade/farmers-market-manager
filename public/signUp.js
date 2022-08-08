@@ -1,5 +1,8 @@
 document.querySelector("#signup-form").addEventListener("submit",e=>{
     e.preventDefault();
+    //this should redirect the user to the home page after clicking submit 
+    document.location.href="/";
+    const jumbo = document.querySelector("#loginJumbo");
     const vendorObj = {
         vendorName: document.querySelector("#signup-username").value,
         email: document.querySelector("#signup-email").value,
@@ -17,6 +20,8 @@ document.querySelector("#signup-form").addEventListener("submit",e=>{
             res.json().then(json => {
                 console.log(json.id);
                 location.href = `/api/vendors/${json.id}`
+                //should change the content of the side jumbo to alert user they created an account
+                jumbo.innerHTML='Successfully created a user';
               });
         } else {
             res.status(404)
