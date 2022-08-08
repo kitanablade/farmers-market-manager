@@ -1,14 +1,11 @@
 document.querySelector("#new-product-form").addEventListener("submit",e=>{
     e.preventDefault();
     const productObj = {
-        product_name: document.querySelector("#new-product-name").value,
-        desc: document.querySelector("#new-desc").value,
-        stock: document.querySelector("#new-stock").value,
-        price: document.querySelector("#new-price").value,
-        unit: document.querySelector("#new-unit").value,
-        // img_url: document.querySelector("#new-img-url").value,
+        productName: document.querySelector("#update-product-name").value,
+        description: document.querySelector("#udpate-description").value,
+        inStock: document.querySelector("#udpate-inStock").value,
     }
-    fetch("/api/vendors/new-product",{
+    fetch("/api/products/",{
         method:"POST",
         body:JSON.stringify(productObj),
         headers:{

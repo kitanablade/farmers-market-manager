@@ -70,7 +70,9 @@ router.put("/:id",(req,res)=>{
         if(!foundVendor){
             return res.status(404).json({msg:"no such vendor"})
         }
-        if(foundVendor.id!==req.session.vendor.id){
+        if(foundVendor.id != req.session.vendor.id) {
+            console.log (foundVendor)
+            console.log (req.session)
             return res.status(403).json({msg:"This account belongs to another vendor."})
         }
         Vendor.update({ 
@@ -118,37 +120,37 @@ router.post("/login",(req,res)=>{
 
 //delete Vendor
 router.delete("/:id",(req,res)=>{
-    // if(!req.session.Vendor){
-    //     return res.status(403).json({msg:"login first to delete this Vendor account."})
-    // }
+    if(!req.session.vendor){
+        return res.status(403).json({msg:"login first to delete this Vendor account."})
+    }
     Vendor.findOne({
         where:{
             id:req.params.id
         }
     }).then(data=>{
-        // if(req.session.Vendor.id === data.Vendor.id){
+        if(req.session.Vendor.id === data.vendor.id){
             Vendor.destroy({
                 where:{
                     id:req.params.id
                 }
             })
-        // }
+        }
     }).catch(err=>{
         res.status(500).json({msg:"ERROR",err})
     })
 })
 
-router.delete("/:vendorId/tags/:tadId", (req, res) => {
-    vendor.findByPk(req.params.vendorId).then(data => {
-        data.removeTag(req.params.tagId).then(() => {
-            res.json(data);
-        }).catch(err => {
-            console.log(err);
-            res.status(400).json({mes: "cannot remove this tag, sorry"})
-        })
-    }).catch(err => {
-        res.status(500).json({mes: "whoops, lol", err})
-    })
-});
+// router.delete("/:vendorId/tags/:tadId", (req, res) => {
+//     vendor.findByPk(req.params.vendorId).then(data => {
+//         data.removeTag(req.params.tagId).then(() => {
+//             res.json(data);
+//         }).catch(err => {
+//             console.log(err);
+//             res.status(400).json({mes: "cannot remove this tag, sorry"})
+//         })
+//     }).catch(err => {
+//         res.status(500).json({mes: "whoops, lol", err})
+//     })
+// })
 
 module.exports = router;

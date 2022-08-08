@@ -1,11 +1,10 @@
 document.querySelector("#signup-form").addEventListener("submit",e=>{
     e.preventDefault();
     const vendorObj = {
-        vendor_name: document.querySelector("#signup-username").value,
+        vendorName: document.querySelector("#signup-username").value,
         email: document.querySelector("#signup-email").value,
         password: document.querySelector("#signup-password").value,
-        location: document.querySelector("#signup-location").value,
-        about: document.querySelector("#signup-about").value,
+        description: document.querySelector("#signup-location").value,
     }
     fetch("/api/vendors/",{
         method:"POST",
