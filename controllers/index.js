@@ -89,13 +89,34 @@ router.get('/vendor/:id',(req, res)=>{
     })
 })
 
-router.get('/event',(req,res)=>{
+router.get('/event',(req, res)=>{
     Event.findAll({
     }).then(data=>{
-        const hbsData = data.map(modelIns=>modelIns.toJSON())
+        const hbsData = data.map(modelIns=> modelIns.toJSON())
         res.render("allEvents",{
             events:hbsData
         })
     })
 });
+
+//rendering the New User homepage
+router.get('/', (req, res) => {
+    res.render('newUserPage', {title: 'New User'});
+});
+
+//not entirely sure we need these? since we already have login info? but i'm shoving it in here anyways
+router.post('/', (req, res) => {
+    var body= req.body;
+
+    var res_body = {
+        first_name: body.first_name,
+        last_name: body.last_name,
+        email: body.email
+    };
+
+    res.render('welcomeNewUser', res_body);
+});
+
+
+
 module.exports = router;
