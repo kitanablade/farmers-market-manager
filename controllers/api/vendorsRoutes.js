@@ -114,6 +114,7 @@ router.post("/login",(req,res)=>{
         }
         return res.status(200).json(foundVendor)
     }).catch(err=>{
+        console.log(err)
         res.status(500).json({msg:"ERROR",err})
     })
 })
@@ -140,17 +141,5 @@ router.delete("/:id",(req,res)=>{
     })
 })
 
-// router.delete("/:vendorId/tags/:tadId", (req, res) => {
-//     vendor.findByPk(req.params.vendorId).then(data => {
-//         data.removeTag(req.params.tagId).then(() => {
-//             res.json(data);
-//         }).catch(err => {
-//             console.log(err);
-//             res.status(400).json({mes: "cannot remove this tag, sorry"})
-//         })
-//     }).catch(err => {
-//         res.status(500).json({mes: "whoops, lol", err})
-//     })
-// })
 
 module.exports = router;
