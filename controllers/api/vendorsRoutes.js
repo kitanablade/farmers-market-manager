@@ -149,6 +149,6 @@ router.delete("/:vendorId/tags/:tadId", (req, res) => {
     }).catch(err => {
         res.status(500).json({mes: "whoops, lol", err})
     })
-})
+});
 
 module.exports = router;
