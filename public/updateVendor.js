@@ -1,11 +1,10 @@
 document.querySelector("#update-vendor-form").addEventListener("submit",e=>{
     e.preventDefault();
     const vendorObj = {
-        vendor_name: document.querySelector("#update-username").value,
-        email: document.querySelector("#update-email").value,
-        password: document.querySelector("#update-password").value,
-        location: document.querySelector("#update-location").value,
-        about: document.querySelector("#update-about").value,
+        vendorName: document.querySelector("#signup-username").value,
+        email: document.querySelector("#signup-email").value,
+        password: document.querySelector("#signup-password").value,
+        description: document.querySelector("#signup-location").value,
     }
     fetch("/api/vendors/",{
         method:"PUT",
