@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS vendors_db;
+CREATE DATABASE vendors_db;
