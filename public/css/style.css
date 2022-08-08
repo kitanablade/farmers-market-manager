@@ -132,3 +132,46 @@ main{
     color: var(--primary);
     
 }
+
+#imgJumbo {
+    background-image: url(./images/knickknackcats.jpg);
+}
+
+a {
+    color: #f0b44e;
+    text-decoration: underline;
+}
+/* Media!! */
+
+/* tiny screens -- 576px & below */
+/* @media only screen and (max-width: 576px) {
+    body {
+      width: 50%
+    }
+  }
+  /* small screens -- 576px & up */
+  /* @media only screen and (min-width: 576px) {
+    body {
+      width: 33%
+    }
+  }
+  /* medium screens -- 768px and up */
+  /* @media only screen and (min-width: 768px) {
+    body {
+      width: 20%
+    }
+  } */
+  
+  /* large screens -- 992px and up */
+  /* @media only screen and (min-width: 992px) {
+    body {
+      width: 20%
+    }
+  } */
+  
+  /* extra large screens -- 1200px and up */
+  /* @media only screen and (min-width: 1200px) {
+    body {
+      width: 20%
+    }
+  } 
