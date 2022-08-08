@@ -30,12 +30,12 @@ Vendors.init({
 },{
     sequelize,
     timestamps: false,
-    // hooks:{
-    //     beforeCreate:userObj=>{
-    //         userObj.password = bcrypt.hashSync(userObj.password,8);
-    //         return userObj;
-    //     }
-    // }
+    hooks:{
+        beforeCreate:userObj=>{
+            userObj.password = bcrypt.hashSync(userObj.password,8);
+            return userObj;
+        }
+    }
 });
 
 module.exports= Vendors;
