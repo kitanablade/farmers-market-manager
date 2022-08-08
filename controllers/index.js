@@ -8,7 +8,6 @@ const {Event, Product, Vendor} = require('../models');
 router.use("/api",apiRoutes)
 //router.use(frontend)
 
-
 //log in route
 router.get("/login",(req,res)=>{
     res.render("login")             // Don't think we need this BECAUSE there is already a form that pops up when you click the login button
