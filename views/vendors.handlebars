@@ -16,6 +16,9 @@
 <section>
     {{#each vendors}}
     <div class= "card">
+        <img src={{logo_url}} alt="" style="object-fit:cover;
+            width:200px;
+            height:200px;"/>
         <h3><a href="/vendor/{{id}}">{{vendorName}}</a></h3>
         <h4>{{description}}</h4>
     </div>

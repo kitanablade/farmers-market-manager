@@ -39,6 +39,7 @@ router.post("/",(req,res)=>{
         email:req.body.email,
         password:req.body.password,
         description:req.body.description,
+        logo_url:req.body.logo_url
     }).then(data=>{
         res.json(data) 
         Vendor.findOne({

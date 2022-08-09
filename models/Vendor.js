@@ -10,23 +10,27 @@ Vendors.init({
     vendorName:{
         type:DataTypes.STRING,
         allowNull:false,
-   },
+    },
     email: {
         type: DataTypes.STRING,
         allowNull:false,
         unique:true
-   },
-   password:{
+    },
+    password:{
         type:DataTypes.STRING,
         allowNull:false,
         validate:{
             len:[8]
         }
-   },
-   description:{
-    type:DataTypes.TEXT,
-    default:""
-}
+    },
+    description:{
+        type:DataTypes.TEXT,
+        default:""
+    },
+    logo_url:{
+        type:DataTypes.STRING,
+        default:""
+        }
 },{
     sequelize,
     timestamps: false,
