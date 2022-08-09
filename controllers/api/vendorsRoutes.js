@@ -39,6 +39,7 @@ router.post("/",(req,res)=>{
         email:req.body.email,
         password:req.body.password,
         description:req.body.description,
+        logo_url:req.body.logo_url
     }).then(data=>{
         res.json(data) 
         Vendor.findOne({
@@ -46,6 +47,7 @@ router.post("/",(req,res)=>{
             email:req.body.email
         }
     }).then(foundVendor=>{
+        req.session.loggedIn=true;
         req.session.vendor={
             id:foundVendor.id,
             vendorName:foundVendor.vendorName,
@@ -119,6 +121,7 @@ router.post("/login",(req,res)=>{
         if(!bcrypt.compareSync(req.body.password,foundVendor.password)){
             return res.status(401).json({msg:"invalid login credentials"})
         }
+        req.session.loggedIn = true;
         req.session.vendor={
             id:foundVendor.id,
             vendorName:foundVendor.vendorName,
