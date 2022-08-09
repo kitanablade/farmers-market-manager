@@ -1,3 +1,5 @@
+let logoUrl = "";
+
 document.querySelector("#signup-form").addEventListener("submit",e=>{
     e.preventDefault();
     //this should redirect the user to the home page after clicking submit 
@@ -8,6 +10,7 @@ document.querySelector("#signup-form").addEventListener("submit",e=>{
         email: document.querySelector("#signup-email").value,
         password: document.querySelector("#signup-password").value,
         description: document.querySelector("#signup-description").value,
+        logo_url:logoUrl
     }
     console.log (vendorObj)
         fetch("/api/vendors",{
@@ -18,9 +21,9 @@ document.querySelector("#signup-form").addEventListener("submit",e=>{
             }
         }).then(res=>{
             if(res.ok){
-                res.json().then(json => {
-                    console.log(json.id);
-                    location.href = `/vendor/${json.id}`
+                res.json().then(vendor => {
+                    console.log(vendor);
+                    // location.href = `/vendor/${vendor.id}`
                 //should change the content of the side jumbo to alert user they created an account
                     // jumbo.innerHTML='Successfully created a user';
               });
@@ -29,6 +32,22 @@ document.querySelector("#signup-form").addEventListener("submit",e=>{
         }
     })
 })
+
+var myWidget = cloudinary.createUploadWidget({
+    cloudName: 'hawker-image-db', 
+    uploadPreset: 'upload_preset'}, (error, result) => { 
+      if (!error && result && result.event === "success") { 
+        // console.log('Done! Here is the image info: ', result.info); 
+        console.log(result.info.url)
+        logoUrl = result.info.url
+      }
+    }
+  )
+  
+  document.getElementById("upload_widget").addEventListener("click", e=>{
+    e.preventDefault();
+      myWidget.open();
+    }, false);
 
 
 //event selection data route mock up
