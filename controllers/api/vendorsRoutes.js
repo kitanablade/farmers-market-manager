@@ -47,6 +47,7 @@ router.post("/",(req,res)=>{
     })
 })
 
+// Add event to vendor
 router.post("/:vendorId/events/:eventId",(req,res)=>{
     Vendor.findByPk(req.params.vendorId).then(data=>{
         data.addEvent(req.params.eventId).then(()=>{
@@ -140,5 +141,23 @@ router.delete("/:id",(req,res)=>{
         res.status(500).json({msg:"ERROR",err})
     })
 })
+
+// Remove event from vendor
+router.delete("/:vendorId/events/:eventId", (req, res) => {
+    if(!req.session.Vendor){
+        return res.status(403).json({msg:"Login first to remove this event."})
+    }
+    Vendor.findByPk(req.params.vendorId).then(data => {
+        data.removeEvent(req.params.eventId).then(() => {
+            res.json(data);
+        }).catch(err => {
+            console.log(err);
+            res.status(400).json({mes: "Unable to remove this event."})
+        })
+    }).catch(err => {
+        res.status(500).json({mes: "An error has occurred: ", err})
+    })
+})
+
 
 module.exports = router;
