@@ -15,7 +15,7 @@ document.querySelector("#vendor-login-form").addEventListener("submit",e=>{
             console.log(res)
             res.json().then(json => {
                 console.log(json.id);
-                location.href = `vendor/${json.id}`
+                location.href = `/profile`
               });
         } else {
             res.status(404)
