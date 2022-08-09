@@ -10,7 +10,7 @@ document.querySelector("#signup-form").addEventListener("submit",e=>{
         description: document.querySelector("#signup-description").value,
     }
     console.log (vendorObj)
-        fetch("/api/vendors/",{
+        fetch("/api/vendors",{
             method:"POST",
             body:JSON.stringify(vendorObj),
             headers:{
@@ -20,9 +20,9 @@ document.querySelector("#signup-form").addEventListener("submit",e=>{
             if(res.ok){
                 res.json().then(json => {
                     console.log(json.id);
-                    location.href = `/api/vendors/${json.id}`
+                    location.href = `/vendor/${json.id}`
                 //should change the content of the side jumbo to alert user they created an account
-                    jumbo.innerHTML='Successfully created a user';
+                    // jumbo.innerHTML='Successfully created a user';
               });
         } else {
             res.status(404)

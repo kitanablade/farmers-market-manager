@@ -40,11 +40,22 @@ router.post("/",(req,res)=>{
         password:req.body.password,
         description:req.body.description,
     }).then(data=>{
-        res.json(data)
+        res.json(data) 
+        Vendor.findOne({
+        where:{
+            email:req.body.email
+        }
+    }).then(foundVendor=>{
+        req.session.vendor={
+            id:foundVendor.id,
+            vendorName:foundVendor.vendorName,
+            email:foundVendor.email
+        }
         console.log(req.session)
     }).catch(err=>{
         res.status(500).json({msg:"ERROR",err})
     })
+})
 })
 
 // Add event to vendor
@@ -130,7 +141,7 @@ router.delete("/:id",(req,res)=>{
             id:req.params.id
         }
     }).then(data=>{
-        if(req.session.Vendor.id === data.vendor.id){
+        if(req.session.vendor.id === data.id){
             Vendor.destroy({
                 where:{
                     id:req.params.id
@@ -138,6 +149,7 @@ router.delete("/:id",(req,res)=>{
             })
         }
     }).catch(err=>{
+        console.log(err)
         res.status(500).json({msg:"ERROR",err})
     })
 })

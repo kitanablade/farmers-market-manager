@@ -57,7 +57,7 @@ router.get('/vendor',(req,res)=>{
 });
 
 //get one Vendor. Shows related products
-router.get('api/vendor/:id',(req, res)=>{
+router.get('/vendor/:id',(req, res)=>{
     Vendor.findByPk(req.params.id,{
         include:[Product]
     }).then(data=>{
