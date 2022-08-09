@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <form action="/" method="post" role="form" enctype="application/x-www-form-urlencoded" id="signup-form">
+                    <form role="form" enctype="application/x-www-form-urlencoded" id="signup-form">
                         <legend>Enter Required Registration Information!</legend>
 
                         <div class="form-group">
@@ -36,20 +36,24 @@
                             <input type="password" class="form-control" name="pw" id="signup-password">
                         </div>
 
+                        <button id="upload_widget" class="cloudinary-button">Upload Logo</button>
+
                         {{!-- <div class="form-group">
                             <label for="pw_confirm">Confirm Password</label>
                             <input type="password" class="form-control" name="pw_confirm" id="">
                         </div> --}}
 
-                        <button type="submit" class="btn btn-primary">Sign up</button>
+                        <button id="submit-button" type="submit" class="btn btn-primary">Sign up</button>
 
                     </form>
                 </div>
             </div>
         </div>
         </section>
+        
+        <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+        {{!-- <script src="/uploadWidget.js"></script> --}}
         <script src="/signUp.js"></script>
-
 
 {{!-- //sign up w/ google button -- for later to mess around w/ if given time
 <script src="https://accounts.google.com/gsi/client" async defer></script>
