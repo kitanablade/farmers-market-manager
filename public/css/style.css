@@ -157,6 +157,19 @@ a {
   text-decoration: none;
 }
 
+
+#userContent{
+  display: block;
+}
+
+#userEvents{
+  display: none;
+}
+
+#userProducts{
+  display: none;
+}
+
 #signup-form {
 /*will add more to this later, I think. I'd like the photo to align w/ the box */
 }

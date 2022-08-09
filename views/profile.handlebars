@@ -14,16 +14,24 @@
 </aside>
 
 <section id="eventsProducts">
-        <h1>im working</h1>
-        <h3 contenteditable="true">{{vendorName}}</h3>
-        {{#each Products}}
-        <div class= "vendorCard" contenteditable="true">
-        <h4>{{productName}}</h4>
-        <ul>
-            <li>Description: {{description}}</li>
-            <li>In Stock: {{inStock}}</li>
-        </ul>
+        <h3>{{vendorName}}</h3>
+        <p>{{description}}</p>
+        <button id="editProfile">Edit Profile</button>
+        <button id="editEvents">Edit Events</button>
+        <button id="editProducts">Edit Products</button>
+        <br><br>
+        <div id="userContent">
+            {{> editUser}}
         </div>
-        {{/each}}
+        <br>
+        <div id="userEvents">
+            {{> editEvents}}
+        </div>
+
+        
+        <div id="userProducts">
+            {{> editProducts}}
+        </div>
+        
     
 </section>

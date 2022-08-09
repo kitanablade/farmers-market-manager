@@ -2,8 +2,8 @@ document.querySelector("#update-product-form").addEventListener("submit",e=>{
     e.preventDefault();
     const productObj = {
         productName: document.querySelector("#update-product-name").value,
-        description: document.querySelector("#udpate-description").value,
-        inStock: document.querySelector("#udpate-inStock").value,
+        description: document.querySelector("#update-description").value,
+        inStock: document.querySelector("#update-inStock").value,
     }
     fetch("/api/products/:id",{
         method:"PUT",
