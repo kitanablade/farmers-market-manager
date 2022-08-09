@@ -20,7 +20,12 @@
         {{#each Vendors}}
         <div class= "vendorCard">
             <li><a href="/vendor/{{id}}">{{vendorName}}</a></li><br>
-            <p>{{description}}</p>            
+            <p>{{description}}</p> 
+            {{#each Producs}}
+            <p>{{productName}}</p>
+            <p>{{description}}</p>
+            <p>In Stock: {{inStock}}</p>
+            {{/each}}           
         </div>
         {{/each}}
         </ul>
