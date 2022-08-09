@@ -53,7 +53,6 @@ router.post("/",(req,res)=>{
             vendorName:foundVendor.vendorName,
             email:foundVendor.email
         }
-        console.log(req.session)
     }).catch(err=>{
         res.status(500).json({msg:"ERROR",err})
     })

@@ -1,13 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const handlebrs = require('express-handlebars');
+const { isLength } = require('lodash');
 const {Event, Product, Vendor} = require('../../models');
 
-
-
-
 //renders sign-up page
-
 router.get("/vendor/signup", (req, res)=>{
     res.render("newUserPage")
 })
@@ -17,8 +14,10 @@ router.get('/',(req,res)=>{
     Event.findAll({
     }).then(data=>{
         const hbsData = data.map(modelIns=>modelIns.toJSON())
+        hbsData.isLoggedIn=req.session.loggedIn
+        console.log(hbsData)
         res.render("home",{
-            events:hbsData
+            events:hbsData,
         })
     })
 })
@@ -31,6 +30,7 @@ router.get("/event/:id",(req,res)=>{
             include:[Product]}]
     }).then(data=>{
         const hbsData = data.toJSON()
+        hbsData.isLoggedIn=req.session.loggedIn
         console.log(hbsData)
         res.render("eventPage",hbsData)
     })
@@ -41,6 +41,7 @@ router.get('/event',(req,res)=>{
     Event.findAll({
     }).then(data=>{
         const hbsData = data.map(modelIns=>modelIns.toJSON())
+        hbsData.isLoggedIn=req.session.loggedIn
         res.render("allEvents",{
             events:hbsData
         })
@@ -52,6 +53,7 @@ router.get('/vendor',(req,res)=>{
     Vendor.findAll({
     }).then(data=>{
         const hbsData = data.map(modelIns=>modelIns.toJSON())
+        hbsData.isLoggedIn=req.session.loggedIn
         res.render("vendors",{
             vendors:hbsData
         })
@@ -65,6 +67,7 @@ router.get('/vendor/:id',(req, res)=>{
             include:[Product]
         }).then(data=>{
             const hbsData = data.toJSON()
+            hbsData.isLoggedIn=req.session.loggedIn
             res.render("vendorPage",hbsData)
         })
         // console.log("not logged in")
@@ -82,19 +85,23 @@ router.get('/vendor/:id',(req, res)=>{
 router.get('/profile', (req, res)=>{
     console.log(req.session)
     if(!req.session.loggedIn){
-        res.redirect("/event")
-    } else{
-        if(req.session.vendor.id){
-             Vendor.findByPk(req.session.vendor.id,{
-                    include:[{model: Product}]
-                }).then(data=>{
-                    const hbsData = data.toJSON()
-                    console.log(hbsData)
-                    res.render("profile",hbsData)
-                })
-            }
-        }
+        res.redirect("/login")
+    } else {
+        Vendor.findByPk(req.session.vendor.id,{
+            include:[{model: Product}]
+        }).then(data=>{
+            console.log(data)
+            const hbsData = data.toJSON()
+            hbsData.isLoggedIn=req.session.loggedIn
+            console.log(hbsData)
+            res.render("profile",hbsData)
+        }).catch(err=>{
+            console.log(err)
+            res.status(500).json({msg:"ERROR",err})
+        })
+    }
 })
+
 
 //get one Vendor. Shows related products
 router.get('/product/:id',(req, res)=>{
@@ -102,6 +109,8 @@ router.get('/product/:id',(req, res)=>{
         include:[Vendor]
     }).then(data=>{
         const hbsData = data.toJSON()
+        hbsData.isLoggedIn = req.session.vendor.id
+        hbsData.isLoggedIn=req.session.loggedIn
         console.log(hbsData)
         res.render("vendorPage",hbsData)
     })

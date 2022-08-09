@@ -22,8 +22,30 @@ document.querySelector("#signup-form").addEventListener("submit",e=>{
         }).then(res=>{
             if(res.ok){
                 res.json().then(vendor => {
-                    console.log(vendor);
-                    // location.href = `/vendor/${vendor.id}`
+                    console.log("Vendor created!")
+                    console.log(vendor)
+                    const logInObj = {
+                        email:vendor.email,
+                        password:document.querySelector("#signup-password").value,
+                    }
+                    fetch("/api/vendors/login",{
+                        method:"POST",
+                        body:JSON.stringify(logInObj),
+                        headers:{
+                            "Content-Type":"application/json"
+                        }
+                    }).then(res=>{
+                        if(res.ok){
+                            console.log(res)
+                            res.json().then(json => {
+                                console.log(json.id);
+                                location.href = `/profile`
+                              });
+                        } else {
+                            res.status(404)
+                        }
+                    })
+                    // location.href = `/profile`
                 //should change the content of the side jumbo to alert user they created an account
                     // jumbo.innerHTML='Successfully created a user';
               });
