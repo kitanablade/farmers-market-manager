@@ -40,13 +40,25 @@ router.post("/",(req,res)=>{
         password:req.body.password,
         description:req.body.description,
     }).then(data=>{
-        res.json(data)
+        res.json(data) 
+        Vendor.findOne({
+        where:{
+            email:req.body.email
+        }
+    }).then(foundVendor=>{
+        req.session.vendor={
+            id:foundVendor.id,
+            vendorName:foundVendor.vendorName,
+            email:foundVendor.email
+        }
         console.log(req.session)
     }).catch(err=>{
         res.status(500).json({msg:"ERROR",err})
     })
 })
+})
 
+// Add event to vendor
 router.post("/:vendorId/events/:eventId",(req,res)=>{
     Vendor.findByPk(req.params.vendorId).then(data=>{
         data.addEvent(req.params.eventId).then(()=>{
@@ -129,7 +141,7 @@ router.delete("/:id",(req,res)=>{
             id:req.params.id
         }
     }).then(data=>{
-        if(req.session.Vendor.id === data.vendor.id){
+        if(req.session.vendor.id === data.id){
             Vendor.destroy({
                 where:{
                     id:req.params.id
@@ -137,8 +149,27 @@ router.delete("/:id",(req,res)=>{
             })
         }
     }).catch(err=>{
+        console.log(err)
         res.status(500).json({msg:"ERROR",err})
     })
 })
+
+// Remove event from vendor
+router.delete("/:vendorId/events/:eventId", (req, res) => {
+    if(!req.session.Vendor){
+        return res.status(403).json({msg:"Login first to remove this event."})
+    }
+    Vendor.findByPk(req.params.vendorId).then(data => {
+        data.removeEvent(req.params.eventId).then(() => {
+            res.json(data);
+        }).catch(err => {
+            console.log(err);
+            res.status(400).json({mes: "Unable to remove this event."})
+        })
+    }).catch(err => {
+        res.status(500).json({mes: "An error has occurred: ", err})
+    })
+})
+
 
 module.exports = router;
