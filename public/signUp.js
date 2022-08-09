@@ -30,6 +30,7 @@ document.querySelector("#signup-form").addEventListener("submit",e=>{
     })
 })
 
+
 //event selection data route mock up
 // document.querySelector("#signup-form").addEventListener("submit",e=>{
 //     e.preventDefault();
