@@ -91,7 +91,7 @@ router.get('/profile', (req, res)=>{
         res.redirect("/login")
     } else {
         Vendor.findByPk(req.session.vendor.id,{
-            include:[{model: Product}]
+            include:[Product,Event]
         }).then(data=>{
             console.log(data)
             const hbsData = data.toJSON()
