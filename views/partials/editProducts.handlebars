@@ -1,0 +1,12 @@
+       <h4>Edit Products:</h4>
+       {{#each Products}}
+       <div class="card">
+         <a href="https://placeholder.com"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
+        <h5>{{productName}}</h5>
+        <p>{{description}}</p>
+        <p>Instock: {{inStock}}</p>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#editMenu" aria-expanded="false" aria-controls="collapseExample" id="editBtn">
+            Edit
+        </button>   
+       </div>
+        {{/each}}

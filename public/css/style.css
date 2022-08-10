@@ -221,9 +221,27 @@ button#upload_widget.cloudinary-button {
   position: sticky;
 }
 
+
+
+#userContent{
+  display: block;
+}
+
+#userEvents{
+  display: none;
+}
+
+#userProducts{
+  display: none;
+}
+
+#signup-form {
+/*will add more to this later, I think. I'd like the photo to align w/ the box */
+
 #button:hover {
   background-color: rgb(213, 4, 255);
   text-decoration: none;
+
 }
 
 /* Media!!
