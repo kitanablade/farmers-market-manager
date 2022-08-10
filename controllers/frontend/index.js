@@ -73,16 +73,6 @@ router.get('/vendor/:id',(req, res)=>{
             hbsData.isLoggedIn=req.session.loggedIn
             res.render("vendorPage",hbsData)
         })
-        // console.log("not logged in")
-        // } if(req.session.vendor.id){
-        //      Vendor.findByPk(req.session.vendor.id,{
-        //             include:[Product]
-        //         }).then(data=>{
-        //             const hbsData = data.toJSON()
-        //             console.log(hbsData)
-        //             res.render("profile",hbsData)
-        //         })
-        //         }
 });
 
 router.get('/profile', (req, res)=>{
