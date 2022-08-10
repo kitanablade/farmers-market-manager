@@ -12,9 +12,10 @@ document.querySelector("#vendor-login-form").addEventListener("submit",e=>{
         }
     }).then(res=>{
         if(res.ok){
+            console.log(res)
             res.json().then(json => {
                 console.log(json.id);
-                location.href = `vendors/${json.id}`
+                location.href = `/profile`
               });
         } else {
             res.status(404)

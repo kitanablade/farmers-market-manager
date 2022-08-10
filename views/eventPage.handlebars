@@ -1,10 +1,33 @@
+<aside>
+    <div class="container text-center">
+    <div class="row">
+        <div class="col-12 sidebar">
+        <a href="/" id="home">Home</a>
+        </div>
+        <div class="col-12 sidebar">
+        <a href="/event" id="events">Event List</a> 
+        </div>
+        <div class="col-12 sidebar">
+        <a href="/vendor" id="vendors"> Vendor List</a>
+        </div>
+    </div>
+</aside>
+
 <section id="eventsProducts">
     
         <h3>Vendors at {{eventName}}</h3>
-        {{#each event.vendor}}
+        <ul>
+        {{#each Vendors}}
         <div class= "vendorCard">
-        <h4>{{this.name}}</h4>
+            <li><a href="/vendor/{{id}}">{{vendorName}}</a></li><br>
+            <p>{{description}}</p> 
+            {{#each Producs}}
+            <p>{{productName}}</p>
+            <p>{{description}}</p>
+            <p>In Stock: {{inStock}}</p>
+            {{/each}}           
         </div>
         {{/each}}
+        </ul>
     
 </section>

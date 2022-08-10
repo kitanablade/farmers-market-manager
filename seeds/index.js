@@ -6,22 +6,22 @@ const events = [
     {
         eventName:"Redmond Saturday Market",
         location:"Redmond, WA",
-        description:"Farmer's market with a mix of produce, food, and crafts vendors. Dog-friendly."
+        description:"Farmer's market with a mix of produce, food, and crafts vendors. Dog-friendly.",
     },
     {
         eventName:"University Farmer's Market",
         location:"U-District, Seattle, WA",
-        description:"Farmer's market with a mix of produce, food, and crafts vendors. Dog friendly."
+        description:"Farmer's market with a mix of produce, food, and crafts vendors. Dog friendly.",
     },
     {
         eventName:"Seafair",
         location:"Seattle Center",
-        description:"Major event with vendors of all types."
+        description:"Major event with vendors of all types.",
     },
     {
         eventName:"PAX West",
         location:"Washington State Convention Center",
-        description:"Video games, tourneys, meetups, concerts, vendors, esports, cosplay, and more."
+        description:"Video games, tourneys, meetups, concerts, vendors, esports, cosplay, and more.",
     }
 ]
 
@@ -63,21 +63,25 @@ const products = [
         productName:"Yukon Gold Potatoes",
         description:"",
         inStock:true,
+        VendorId:1
     },
     {
         productName:"Strawberries",
         description:"",
         inStock:true,
+        VendorId:2
     },
     {
         productName:"Hero Sandwich",
         description:"",
         inStock:true,
+        VendorId:5
     },
     {
         productName:"D-20 Dice",
         description:"",
         inStock:true,
+        VendorId:3
     },
 ]
 
@@ -85,17 +89,28 @@ const products = [
 
 const seedMe =async()=>{
     await sequelize.sync({force:true});
-    await Event.bulkCreate(events);
-    await Vendor.bulkCreate(vendors);
-    await Product.bulkCreate(products);
-    // const productObj = await Event.bulkCreate(products);
-    // const vendorObj = await Vendor.bulkCreate(vendors);
+
+    const eventObj = await Event.bulkCreate(events);
+    const vendorObj = await Vendor.bulkCreate(vendors,{individualHooks:true});
+    const productObj = await Product.bulkCreate(products);
+
+    const redmondMkt = eventObj[0];
+    const univMkt = eventObj[1];
+    const seafair = eventObj[2];
+    const pax = eventObj[3];
+
+    const goneToSeed = vendorObj[1];
+    const wargamer = vendorObj[2];
+    const marination = vendorObj[3];
+    const wiseGuy = vendorObj[4];
+
+    await redmondMkt.addVendors([1,2,5]); 
+    await univMkt.addVendors([1,2,4,5])
+    await seafair.addVendors([3,4,5])
+    await pax.addVendors([3,5])
+
     console.log("seeding complete!")
-    //const firstProduct = productObj[0]
-    // const  firstVendor = vendorObj[0];
-    // await firstVendor.addEvent(2)
-    // await firstVendor.addProduct([1,2])
-    // process.exit(0);
+    process.exit(0);
 }
 
 

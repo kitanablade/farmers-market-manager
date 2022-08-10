@@ -32,7 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Static directory
 // app.use(express.static('public'));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, './public')));
 
 const hbs = exphbs.create({});
 app.engine('handlebars', hbs.engine);

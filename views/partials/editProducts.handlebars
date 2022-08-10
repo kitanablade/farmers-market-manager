@@ -1,0 +1,44 @@
+<h4>Add Product:</h4>
+  <form>
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-4 col-form-label">Product Name:</label>
+      <div class="col-sm-12">
+        <input type="name" class="form-control" id="update-product-name" placeholder="Blueberries">
+      </div>
+    </div>
+  <br>
+    <div class="form-group row">
+      <label for="inputName" class="col-auto col-form-label">In Stock:</label>
+      <div class="col-sm-12">
+        <input type="name" class="form-control" id="update-inStock" placeholder="True">
+      </div>
+    </div>
+  <br>
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-4 col-form-label">Description:</label>
+      <div class="col-sm-12">
+        <textarea type="description" class="form-control" id="update-description" placeholder="A fan of eggs"></textarea>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-6">
+      <button type="btn" class="btn btn-primary" id="btnAddProduct">Add Product</button>
+      </div>
+      <div class="col-sm-6">
+        <button id="upload_widget" class="cloudinary-button">Upload Photo</button>
+      </div>
+    </div>
+</form>
+<section>
+  {{#each Products}}
+        <div class= "vendorCard">
+        <h4>{{productName}}</h4>
+        <ul>
+            <li>Description: {{description}}</li>
+            <li>In Stock: {{inStock}}</li>
+        </ul>
+        </div>
+        {{/each}}
+</section>
+
+<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+<script src="/newProduct.js"></script>

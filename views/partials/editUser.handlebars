@@ -1,0 +1,45 @@
+<h4 id="testPurpose">Edit User Profile:</h4>
+<p  style="display:none" id="vendor-id">{{id}}</p>
+<form>
+  <div class="form-group row">
+    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{email}}">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="email" class="col-sm-4 col-form-label">New Email:</label>
+    <div class="col-sm-12">
+      <input type="input" class="form-control" id="signup-email" placeholder="Email">
+    </div>
+  </div>
+  <br>
+  <div class="form-group row">
+    <label for="inputPassword" class="col-sm-4 col-form-label">New Password:</label>
+    <div class="col-sm-12">
+      <input type="password" class="form-control" id="signup-password" placeholder="Password">
+    </div>
+  </div>
+  <br>
+  <div class="form-group row">
+    <label for="inputName" class="col-auto col-form-label">New Vendor Name:</label>
+    <div class="col-sm-12">
+      <input type="name" class="form-control" id="signup-username" placeholder="{{vendorName}}">
+    </div>
+  </div>
+  <br>
+  <div class="form-group row">
+    <label for="inputDescription" class="col-auto col-form-label">New Description:</label>
+    <div class="col-sm-12">
+      <textarea type="description" class="form-control" id="signup-location" placeholder="A fan of eggs"></textarea>
+    </div>
+  </div>
+  <div class="form-group row">
+      <div class="col-sm-6">
+      <button type="click" class="btn btn-primary" id="update-vendor-form">Save Changes</button>
+      </div>
+    </div>
+</form>
+
+<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+<script src="/updateVendor.js"></script>

@@ -39,14 +39,27 @@ router.post("/",(req,res)=>{
         email:req.body.email,
         password:req.body.password,
         description:req.body.description,
+        logo_url:req.body.logo_url
     }).then(data=>{
-        res.json(data)
-        console.log(req.session)
+        res.json(data) 
+        Vendor.findOne({
+        where:{
+            email:req.body.email
+        }
+    }).then(foundVendor=>{
+        req.session.loggedIn=true;
+        req.session.vendor={
+            id:foundVendor.id,
+            vendorName:foundVendor.vendorName,
+            email:foundVendor.email
+        }
     }).catch(err=>{
         res.status(500).json({msg:"ERROR",err})
     })
 })
+})
 
+// Add event to vendor
 router.post("/:vendorId/events/:eventId",(req,res)=>{
     Vendor.findByPk(req.params.vendorId).then(data=>{
         data.addEvent(req.params.eventId).then(()=>{
@@ -75,17 +88,18 @@ router.put("/:id",(req,res)=>{
             console.log (req.session)
             return res.status(403).json({msg:"This account belongs to another vendor."})
         }
-        Vendor.update({ 
-            where:{
-                id:req.params.id
-            },
+        Vendor.update({  
             vendorName:req.body.vendorName,
             email:req.body.email,
             password:req.body.password,
             description:req.body.description,
+        }, {where:{
+            id:req.params.id
+        },
         }).then(data=>{
             res.json(data)
         }).catch(err=>{
+            console.log(err)
             res.status(500).json({msg:"ERROR",err})
         })
     }).catch(err=>{
@@ -107,6 +121,7 @@ router.post("/login",(req,res)=>{
         if(!bcrypt.compareSync(req.body.password,foundVendor.password)){
             return res.status(401).json({msg:"invalid login credentials"})
         }
+        req.session.loggedIn = true;
         req.session.vendor={
             id:foundVendor.id,
             vendorName:foundVendor.vendorName,
@@ -129,7 +144,7 @@ router.delete("/:id",(req,res)=>{
             id:req.params.id
         }
     }).then(data=>{
-        if(req.session.Vendor.id === data.vendor.id){
+        if(req.session.vendor.id === data.id){
             Vendor.destroy({
                 where:{
                     id:req.params.id
@@ -137,7 +152,25 @@ router.delete("/:id",(req,res)=>{
             })
         }
     }).catch(err=>{
+        console.log(err)
         res.status(500).json({msg:"ERROR",err})
+    })
+})
+
+// Remove event from vendor
+router.delete("/:vendorId/events/:eventId", (req, res) => {
+    if(!req.session.Vendor){
+        return res.status(403).json({msg:"Login first to remove this event."})
+    }
+    Vendor.findByPk(req.params.vendorId).then(data => {
+        data.removeEvent(req.params.eventId).then(() => {
+            res.json(data);
+        }).catch(err => {
+            console.log(err);
+            res.status(400).json({mes: "Unable to remove this event."})
+        })
+    }).catch(err => {
+        res.status(500).json({mes: "An error has occurred: ", err})
     })
 })
 
