@@ -95,6 +95,7 @@ const seedMe =async()=>{
     const productObj = await Product.bulkCreate(products);
 
     const redmondMkt = eventObj[0];
+    const univMkt = eventObj[1];
     const seafair = eventObj[2];
     const pax = eventObj[3];
 
@@ -103,7 +104,8 @@ const seedMe =async()=>{
     const marination = vendorObj[3];
     const wiseGuy = vendorObj[4];
 
-    await redmondMkt.addVendors([1,2,4]); 
+    await redmondMkt.addVendors([1,2,5]); 
+    await univMkt.addVendors([1,2,4,5])
     await seafair.addVendors([3,4,5])
     await pax.addVendors([3,5])
 
