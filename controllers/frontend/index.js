@@ -62,15 +62,16 @@ router.get('/vendor',(req,res)=>{
 
 //get one Vendor. Shows related products
 router.get('/vendor/:id',(req, res)=>{
-        Vendor.findByPk(req.params.id,{
-            include:[Product]
+        // if(!req.session.loggedIn){
+        Vendor.findByPk({
+            where:{
+                id: req.params.id
+            },
+            include:[Product,Event]
         }).then(data=>{
             const hbsData = data.toJSON()
             hbsData.isLoggedIn=req.session.loggedIn
             res.render("vendorPage",hbsData)
-        }).catch(err=>{
-            console.log(err);
-            res.status(500).json({msg:"ERROR",err})
         })
 });
 
@@ -80,7 +81,7 @@ router.get('/profile', (req, res)=>{
         res.redirect("/login")
     } else {
         Vendor.findByPk(req.session.vendor.id,{
-            include:[{model: Product}]
+            include:[Product,Event]
         }).then(data=>{
             console.log(data)
             const hbsData = data.toJSON()
