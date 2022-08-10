@@ -25,7 +25,7 @@ header {
 }
 
 header h1 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Rozha One', serif;
   background-image: linear-gradient(rgb(33, 40, 42)), rgba(0, 0, 0, 0.3);
 }
 
@@ -36,10 +36,34 @@ h1 {
   margin: 50px;
 }
 
+h2 {
+  color: #E7C78E;
+  font-family: 'Rozha One', serif;
+
+}
+
 h3 {
   color: #f0b44e;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Rozha One', serif;
   margin: 29px;
+}
+
+h4 {
+  color: #554f43;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: wrap;
+  padding: 50px;
+  /* margin-bottom: 5%; */
+}
+
+section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 50px;
 }
 
 aside {
@@ -50,17 +74,24 @@ aside {
   /* display: inline-block; */
   /* flex-direction: column; */
   /* justify-content: flex-start; */
-  margin-bottom: 15%;
+  margin-bottom: auto;
+  /* margin-left: 50px; */
+  margin-top: 50px;
   border-radius: 5%;
   box-shadow: 2px 2px 3px 2px #F0F2F2;
 }
 
+div#oneEvent, div#twoEvent, div#threeEvent {
+  font-weight: 600!important;
+  font-size: medium!important;
+}
+
 footer {
   flex-shrink: 0;
-  padding: 5px;
+  padding: 3%;
   color: var(--light);
   background-color: var(--primary);
-    margin-top:1%;
+  margin-top:1%;
 }
 
 .sidebar {
@@ -75,7 +106,43 @@ aside a {
 }
 
 .event-Card {
-  border: 2px black solid;
+  border: 2px rgb(0, 0, 0) solid;
+}
+
+.card {
+  margin-bottom: 10px;
+  background-color: var(--secondary)!important;
+  padding: 5px;
+}
+
+a {
+  color: #f0b44e;
+    text-decoration: none;
+}
+
+.card a {
+color: var(--tertiary)!important;
+font-family: 'Rozha One', serif;
+} 
+
+a:hover {
+  color: whitesmoke!important;
+}
+
+#loginJumbo {
+  background-image: url(./images/knickknackcats.jpg);
+  background-size: cover;
+  width: 400px;
+  height: 400px;
+  border-radius: 10%;
+}
+
+#imgJumbo {
+    background-image: url(./images/knickknackcats.jpg);
+}
+
+#signup-form {
+/*will add more to this later, I think. I'd like the photo to align w/ the box */
 }
 
 .btn-success {
@@ -112,66 +179,52 @@ aside a {
   --bs-dropdown-link-active-bg: #03270e;
 }
 
-main{
-
-  display: flex;
-  justify-content: space-around;
-  flex-direction: wrap;
-  margin-bottom: 8%;
+button#upload_widget.cloudinary-button {
+  --bs-btn-color: #F0F2F2;
+  --bs-btn-bg: #7d9d7e;
+  --bs-btn-border-color: #ade1ae --bs-btn-hover-color: #F0F2F2;
+  --bs-btn-hover-bg: #ade1ae;
+  --bs-btn-hover-border-color: #ade1ae;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #F0F2F2;
+  --bs-btn-active-bg: #ade1ae;
+  --bs-btn-active-border-color: #549374;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #F0F2F2;
+  --bs-btn-disabled-bg: #549374;
+  --bs-btn-disabled-border-color: #549374;
+  --bs-dropdown-link-active-bg: #03270e;
+  margin: 15px;
 }
 
-
-
-.card{
-  margin-bottom: 2px;
-  background-color: var(--secondary);
-  padding: 5px;
+#button {
+  display:inline;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #a44ef0;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  position: sticky;
 }
 
-.card a{
-  color: var(--primary);
-
+#button:hover {
+  background-color: rgb(213, 4, 255);
+  text-decoration: none;
 }
 
-#imgJumbo {
-    background-image: url(./images/knickknackcats.jpg);
-}
-
-a {
-  color: #f0b44e;
-    text-decoration: underline;
-}
-/* Media!! */
+/* Media!!
 
 /* tiny screens -- 576px & below */
-/* @media only screen and (max-width: 576px) {
-    body {
-      width: 50%
-    }
+ /* @media only screen and (max-width: 576px) {
+main, aside, form-class, header, footer {
+  width: 100%;
   }
-  /* small screens -- 576px & up */
-/* @media only screen and (min-width: 576px) {
-    body {
-      width: 33%
-    }
-  }
-  /* medium screens -- 768px and up */
-/* @media only screen and (min-width: 768px) {
-    body {
-      width: 20%
-    }
-  } */
-
-/* large screens -- 992px and up */
-/* @media only screen and (min-width: 992px) {
-    body {
-      width: 20%
-    }
-  } */
-
-/* extra large screens -- 1200px and up */
-/* @media only screen and (min-width: 1200px) {
-    body {
-      width: 20%
-    }
-  } 
+}  */
