@@ -53,7 +53,7 @@ h4 {
 }
 
 main {
-  display: flex;
+  /* display: flex; */
   justify-content: space-around;
   flex-direction: wrap;
   padding: 50px;
@@ -135,20 +135,39 @@ a:hover {
   width: 400px;
   height: 400px;
   border-radius: 10%;
+  /* padding-top: 20%; */
+}
+jumbotron {
+  padding-top: 20%;
+  padding: 30px;
 }
 
-#imgJumbo {
-    /* background-image: url(./images/knickknackcats.jpg); */
+/* #imgJumbo {
+  background-image: url(./images/knickknackcats.jpg);
   color: #941bd1;
   justify-content: center;
   padding: 30px;
   margin: 50px;
   font-family: 'Rozha One', serif;
   text-shadow: 5px 5px 10px #F0F2F2;
+} */
+
+#userContent{
+  display: block;
+}
+
+#userEvents, #userProducts{
+  display: none;
 }
 
 #signup-form {
-/*will add more to this later, I think. I'd like the photo to align w/ the box */
+  /* padding-top: 20%; */
+  /* display: flex; */
+}
+
+legend, label {
+  font-family: 'Rozha One', serif;
+  color: #123927;
 }
 
 .btn-success {
@@ -183,9 +202,10 @@ a:hover {
   --bs-btn-disabled-bg: #549374;
   --bs-btn-disabled-border-color: #549374;
   --bs-dropdown-link-active-bg: #03270e;
+  margin: 15px!important;
 }
 
-button#upload_widget.cloudinary-button {
+.cloudinary-button {
   --bs-btn-color: #F0F2F2!important;
   --bs-btn-bg: #7d9d7e!important;
   --bs-btn-border-color: #ade1ae --bs-btn-hover-color: #F0F2F2!important;
@@ -221,25 +241,8 @@ button#upload_widget.cloudinary-button {
   position: sticky;
 }
 
-
-
-#userContent{
-  display: block;
-}
-
-#userEvents{
-  display: none;
-}
-
-#userProducts{
-  display: none;
-}
-
-#signup-form {
-/*will add more to this later, I think. I'd like the photo to align w/ the box */
-
 #button:hover {
-  background-color: rgb(213, 4, 255);
+  background-color: #d504ff;
   text-decoration: none;
 
 }
