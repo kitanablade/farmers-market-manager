@@ -24,7 +24,7 @@ document.querySelector("#editEvents").addEventListener("click",e=>{
     }
 })
 
-document.querySelector("#editProducts").addEventListener("click",e=>{
+document.querySelector("#addProducts").addEventListener("click",e=>{
     e.preventDefault();
     // e.stopImmediatePropagation;
     console.log("working")
