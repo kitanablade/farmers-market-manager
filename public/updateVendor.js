@@ -1,3 +1,5 @@
+let logoUrl = ""
+
 document.querySelector("#update-vendor-form").addEventListener("submit",e=>{
     e.preventDefault();
     const vendorObj = {
@@ -5,6 +7,7 @@ document.querySelector("#update-vendor-form").addEventListener("submit",e=>{
         email: document.querySelector("#signup-email").value,
         password: document.querySelector("#signup-password").value,
         description: document.querySelector("#signup-location").value,
+        logo_url:logoUrl
     }
     fetch("/api/vendors/",{
         method:"PUT",
@@ -23,3 +26,19 @@ document.querySelector("#update-vendor-form").addEventListener("submit",e=>{
         }
     })
 })
+
+var myWidget = cloudinary.createUploadWidget({
+    cloudName: 'hawker-image-db', 
+    uploadPreset: 'upload_preset'}, (error, result) => { 
+      if (!error && result && result.event === "success") { 
+        // console.log('Done! Here is the image info: ', result.info); 
+        console.log(result.info.url)
+        logoUrl = result.info.url
+      }
+    }
+  )
+  
+  document.getElementById("upload_widget").addEventListener("click", e=>{
+    e.preventDefault();
+      myWidget.open();
+    }, false);

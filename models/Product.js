@@ -26,6 +26,10 @@ Product.init({
     type: DataTypes.BOOLEAN,
     defaultValue: false,
    },
+   img_url:{
+    type:DataTypes.STRING,
+    default:""
+    }
 },
 {
     sequelize,
