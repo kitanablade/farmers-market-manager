@@ -53,7 +53,7 @@ h4 {
 }
 
 main {
-  /* display: flex; */
+  display: flex;
   justify-content: space-around;
   flex-direction: wrap;
   padding: 50px;
@@ -83,7 +83,24 @@ aside {
 
 div#oneEvent, div#twoEvent, div#threeEvent {
   font-weight: 600!important;
+  font-size:larger;
+  padding: 5px!important;
+}
+
+div#oneEventDates, div#twoEventDates, div#threeEventDates {
+  font-weight: 300!important;
+  font-size:small!important;
+  padding: 5px!important;
+  color: rgba(245, 245, 245, 0.745);
+  text-align: center;
+  justify-content:center;
+}
+
+div.address, div.messaging, div.phone{
+  font-weight: 600!important;
   font-size: medium!important;
+  padding: 5px!important;
+  color: rgba(245, 245, 245, 0.745);
 }
 
 footer {
@@ -129,18 +146,21 @@ a:hover {
   color: whitesmoke!important;
 }
 
-#loginJumbo {
+#vendorCats {
   background-image: url(./images/knickknackcats.jpg);
   background-size: cover;
   width: 400px;
   height: 400px;
   border-radius: 10%;
   /* padding-top: 20%; */
+  flex-direction: column;
+  flex: auto;
 }
-jumbotron {
+
+/* jumbotron {
   padding-top: 20%;
   padding: 30px;
-}
+} */
 
 /* #imgJumbo {
   background-image: url(./images/knickknackcats.jpg);
@@ -162,7 +182,8 @@ jumbotron {
 
 #signup-form {
   /* padding-top: 20%; */
-  /* display: flex; */
+  display: flex;
+  flex-direction: column;
 }
 
 legend, label {
