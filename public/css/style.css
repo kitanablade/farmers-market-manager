@@ -25,7 +25,7 @@ header {
 }
 
 header h1 {
-  font-family: 'Rozha One', serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
   background-image: linear-gradient(rgb(33, 40, 42)), rgba(0, 0, 0, 0.3);
 }
 
@@ -38,7 +38,7 @@ h1 {
 
 h3 {
   color: #f0b44e;
-  font-family: 'Rozha One', serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
   margin: 29px;
 }
 
@@ -60,7 +60,7 @@ footer {
   padding: 12px;
   color: var(--light);
   background-color: var(--primary);
-  margin-top: 1%;
+    margin-top:1%;
 }
 
 .sidebar {
@@ -110,7 +110,6 @@ aside a {
   --bs-btn-disabled-bg: #549374;
   --bs-btn-disabled-border-color: #549374;
   --bs-dropdown-link-active-bg: #03270e;
-  margin: 15px;
 }
 
 button#upload_widget.cloudinary-button {
@@ -138,7 +137,9 @@ main {
   margin-bottom: 8%;
 }
 
-.card {
+
+
+.card{
   margin-bottom: 2px;
   background-color: var(--secondary)!important;
   padding: 5px;
@@ -157,20 +158,12 @@ main {
 }
 
 #imgJumbo {
-  font-family: 'Rozha One', serif;
-  /* text-align: center; */
-  text-shadow: white 0px 0px 10px;
-  color:#ec2179;
-  width: 100%;
-  padding: 0;
-  position: relative;
-  border-bottom-left-radius: 250% 160px;
-  border-bottom-right-radius: 0;
+    background-image: url(./images/knickknackcats.jpg);
 }
 
 a {
   color: #f0b44e;
-  text-decoration: none;
+    text-decoration: underline;
 }
 
 .card a {
