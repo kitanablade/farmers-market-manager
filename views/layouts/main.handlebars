@@ -21,7 +21,7 @@
             <div class="container-fluid">
                 <h1><a href="/">Farmer's Market Manager</a></h1>
                 {{#if events.isLoggedIn }}
-                <button><a href="/profile">Profile</a>
+                <button id="logInBtn"><a href="/profile">Profile</a>
                 </button>
                 {{/if}}
                 {{#if vendors.isLoggedIn }}
@@ -80,6 +80,19 @@
                     <div class="address">500 Grand Ave, 69th Street</div>
                     <div class="phone">202-555-0133</div>
                     <div class="messaging">farmExecutives.com</div>
+                </div>
+
+                <div class="col-sm">
+                    <h2>Upcoming events</h2>
+                    <div id="oneEvent">PAX West</div>
+                    <div id="oneEventDates">September 2nd-5th, 2022</div>
+
+                    <div id="twoEvent">Seafair</div>
+                    <div id="twoEventDates">August 5th-7th, 2023</div>
+
+                    <div id="threeEvent">University District Farmers Market</div>
+                    <div id="threeEventDates">Every Saturday, 9am-2pm</div>
+                </div>
                 </div>
             </div>
     </footer>
