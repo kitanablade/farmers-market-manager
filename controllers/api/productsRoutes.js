@@ -15,6 +15,7 @@ router.get("/",(req,res)=>{
 })
 
 router.post("/",(req,res)=>{
+    console.log(req.body)
     if(!req.session.vendor){
         return res.status(403).json({msg:"Login first to create a new product!"})
     }
@@ -26,6 +27,7 @@ router.post("/",(req,res)=>{
     }).then(data=>{
         res.json(data)
     }).catch(err=>{
+        console.log(err)
         res.status(500).json({msg:"ERROR",err})
     })
 })
