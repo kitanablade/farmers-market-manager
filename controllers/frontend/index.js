@@ -63,10 +63,7 @@ router.get('/vendor',(req,res)=>{
 //get one Vendor. Shows related products
 router.get('/vendor/:id',(req, res)=>{
         // if(!req.session.loggedIn){
-        Vendor.findByPk({
-            where:{
-                id: req.params.id
-            },
+        Vendor.findByPk(req.params.id, {
             include:[Product,Event]
         }).then(data=>{
             const hbsData = data.toJSON()

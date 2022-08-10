@@ -1,4 +1,4 @@
-let imgUrl = "";
+// let imgUrl = "";
 
 document.querySelector("#update-product-form").addEventListener("submit",e=>{
     e.preventDefault();
