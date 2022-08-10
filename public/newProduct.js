@@ -1,9 +1,12 @@
+let imgUrl = "";
+
 document.querySelector("#new-product-form").addEventListener("submit",e=>{
     e.preventDefault();
     const productObj = {
         productName: document.querySelector("#update-product-name").value,
         description: document.querySelector("#udpate-description").value,
         inStock: document.querySelector("#udpate-inStock").value,
+        img_url: imgUrl
     }
     fetch("/api/products/",{
         method:"POST",
@@ -22,3 +25,19 @@ document.querySelector("#new-product-form").addEventListener("submit",e=>{
         }
     })
 })
+
+var myWidget = cloudinary.createUploadWidget({
+    cloudName: 'hawker-image-db', 
+    uploadPreset: 'upload_preset'}, (error, result) => { 
+      if (!error && result && result.event === "success") { 
+        // console.log('Done! Here is the image info: ', result.info); 
+        console.log(result.info.url)
+        logoUrl = result.info.url
+      }
+    }
+  )
+  
+  document.getElementById("upload_widget").addEventListener("click", e=>{
+    e.preventDefault();
+      myWidget.open();
+    }, false);
