@@ -1,7 +1,9 @@
 let logoUrl = ""
 
-document.querySelector("#update-vendor-form").addEventListener("submit",e=>{
+
+document.getElementById("update-vendor-form").addEventListener("click",e=>{
     e.preventDefault();
+    console.log(document.getElementById("userContent"));
     const vendorObj = {
         vendorName: document.querySelector("#signup-username").value,
         email: document.querySelector("#signup-email").value,
@@ -9,7 +11,9 @@ document.querySelector("#update-vendor-form").addEventListener("submit",e=>{
         description: document.querySelector("#signup-location").value,
         logo_url:logoUrl
     }
-    fetch("/api/vendors/",{
+    const vendorID=document.querySelector("#vendor-id").innerHTML
+    console.log(vendorID)
+    fetch(`/api/vendors/${vendorID}`,{
         method:"PUT",
         body:JSON.stringify(vendorObj),
         headers:{
@@ -19,7 +23,7 @@ document.querySelector("#update-vendor-form").addEventListener("submit",e=>{
         if(res.ok){
             res.json().then(json => {
                 console.log(json.id);
-                location.href = `/api/vendors/${json.id}`
+                location.href = `/profile`
               });
         } else {
             res.status(404)

@@ -2,10 +2,20 @@ const express = require('express');
 const router = express.Router();
 const {Event,Vendor,Product} = require('../../models');
 
-//get all events
+//get all events and their vendors
 router.get("/",(req,res)=>{
     Event.findAll({
         include:[Vendor]
+    }).then(data=>{
+        res.json(data)
+    }).catch(err=>{
+        res.status(500).json({msg:"ERROR",err})
+    })
+})
+
+//get only events with no other data
+router.get("/only",(req,res)=>{
+    Event.findAll({
     }).then(data=>{
         res.json(data)
     }).catch(err=>{

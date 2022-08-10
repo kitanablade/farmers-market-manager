@@ -73,7 +73,6 @@ router.get('/vendor/:id',(req, res)=>{
 });
 
 router.get('/profile', (req, res)=>{
-    console.log(req.session)
     if(!req.session.loggedIn){
         res.redirect("/login")
     } else {
