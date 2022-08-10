@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Questrial&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet">"
     <link rel="stylesheet" href="/css/style.css">
     <title>Farmer's Market Manager</title>
 </head>
@@ -17,6 +16,18 @@
         <nav class="navbar navbar-expand-md">
             <div class="container-fluid">
                 <h1><a href="/">Farmer's Market Manager</a></h1>
+                {{#if events.isLoggedIn }}
+                <button><a href="/profile">Profile</a>
+                </button>
+                {{/if}}
+                {{#if vendors.isLoggedIn }}
+                <button><a href="/profile">Profile</a>
+                </button>
+                {{/if}}
+                {{#if isLoggedIn }}
+                <button><a href="/profile">Profile</a>
+                </button>
+                {{/if}}
                 <div>
                 <button type="button" class=" btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                 Login
