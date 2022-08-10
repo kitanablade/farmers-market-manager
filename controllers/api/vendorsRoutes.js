@@ -88,17 +88,18 @@ router.put("/:id",(req,res)=>{
             console.log (req.session)
             return res.status(403).json({msg:"This account belongs to another vendor."})
         }
-        Vendor.update({ 
-            where:{
-                id:req.params.id
-            },
+        Vendor.update({  
             vendorName:req.body.vendorName,
             email:req.body.email,
             password:req.body.password,
             description:req.body.description,
+        }, {where:{
+            id:req.params.id
+        },
         }).then(data=>{
             res.json(data)
         }).catch(err=>{
+            console.log(err)
             res.status(500).json({msg:"ERROR",err})
         })
     }).catch(err=>{
