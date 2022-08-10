@@ -36,11 +36,3 @@ document.querySelector("#addProducts").addEventListener("click",e=>{
         flag.style.display = "none";
     }
 })
-
-document.querySelector("#editBtn").addEventListener("click",e=>{
-    e.preventDefault();
-    // e.stopImmediatePropagation;
-    console.log("working")
-    let flag = document.getElementById("editMenu")
-    
-})
