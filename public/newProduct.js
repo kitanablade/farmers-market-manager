@@ -1,13 +1,14 @@
 let imgUrl = "";
 
-document.querySelector("#new-product-form").addEventListener("submit",e=>{
+document.querySelector("#btnAddProduct").addEventListener("submit",e=>{
     e.preventDefault();
     const productObj = {
         productName: document.querySelector("#update-product-name").value,
-        description: document.querySelector("#udpate-description").value,
-        inStock: document.querySelector("#udpate-inStock").value,
+        description: document.querySelector("#update-description").value,
+        inStock: document.querySelector("#update-inStock").value,
         img_url: imgUrl
     }
+    console.log(productObj)
     fetch("/api/products/",{
         method:"POST",
         body:JSON.stringify(productObj),
@@ -16,6 +17,8 @@ document.querySelector("#new-product-form").addEventListener("submit",e=>{
         }
     }).then(res=>{
         if(res.ok){
+            console.log("====================")
+            console.log(productObj);
             res.json().then(json => {
                 console.log(json.id);
                 location.href = `/api/products/${json.id}`
