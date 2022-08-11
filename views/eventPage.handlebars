@@ -18,13 +18,18 @@
         <h3>Vendors at {{eventName}}</h3>
         <ul>
         {{#each Vendors}}
-        <div class= "vendorCard">
+        <div class= "card">
             <li><a href="/vendor/{{id}}">{{vendorName}}</a></li><br>
             <p>{{description}}</p> 
             {{#each Producs}}
-            <p>{{productName}}</p>
+            <div class= "card">
+            <img src={{img_url}} alt="" style="object-fit:cover;
+            width:100px;
+            height:100px;"/>
+            <h3>{{productName}}</h3>
             <p>{{description}}</p>
             <p>In Stock: {{inStock}}</p>
+            </div>
             {{/each}}           
         </div>
         {{/each}}

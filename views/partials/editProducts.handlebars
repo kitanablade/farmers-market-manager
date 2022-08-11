@@ -24,13 +24,16 @@
       <button type="btn" class="btn btn-primary" id="btnAddProduct">Add Product</button>
       </div>
       <div class="col-sm-6">
-        <button id="upload_widget" class="cloudinary-button">Upload Photo</button>
+        <button id="upload_widget_product" class="cloudinary-button">Upload Photo</button>
       </div>
     </div>
 </form>
 <section>
   {{#each Products}}
-        <div class= "vendorCard">
+        <div class= "card">
+        <img src={{img_url}} alt="" style="object-fit:cover;
+            width:100px;
+            height:100px;"/>
         <h4>{{productName}}</h4>
         <ul>
             <li>Description: {{description}}</li>

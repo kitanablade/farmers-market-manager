@@ -20,8 +20,11 @@
             width:500px;
             height:500px;"/>
         {{#each Products}}
-        <div class= "vendorCard">
+        <div class= "card">
         <h4>{{productName}}</h4>
+        <img src={{img_url}} alt="" style="object-fit:cover;
+            width:100px;
+            height:100px;"/>
         <ul>
             <li>Description: {{description}}</li>
             <li>In Stock: {{inStock}}</li>

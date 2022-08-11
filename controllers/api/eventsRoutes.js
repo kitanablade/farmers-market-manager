@@ -46,7 +46,6 @@ router.post("/",(req,res)=>{
       eventName:req.body.eventName,
       location:req.body.location,
       description:req.body.description,
-      vendorIds:req.body.vendorIds,
     }).then(data=>{
         res.json(data)
     }).catch(err=>{

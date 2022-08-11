@@ -1,6 +1,6 @@
 :root {
   --primary: #283538;
-  --secondary: #E7C78E;
+  --secondary: rgb(251, 211, 155);
   --tertiary: #9B8063;
   --light: #AFC1AB;
 }
@@ -30,20 +30,20 @@ header h1 {
 }
 
 h1 {
-  color: #f0b44e;
+  color: purple;
   justify-content: center;
   padding: 30px;
   margin: 50px;
 }
 
 h2 {
-  color: #E7C78E;
+  color: orangered;
   font-family: 'Rozha One', serif;
 
 }
 
 h3 {
-  color: #f0b44e;
+  color: purple;
   font-family: 'Rozha One', serif;
   margin: 29px;
 }
@@ -289,11 +289,3 @@ button#editProfile, button#editEvents, button#addProducts {
   --bs-dropdown-link-active-bg: #03270e!important;
   margin: 15px!important;
 }
-/* Media!!
-
-/* tiny screens -- 576px & below */
- /* @media only screen and (max-width: 576px) {
-main, aside, form-class, header, footer {
-  width: 100%;
-  }
-}  */
