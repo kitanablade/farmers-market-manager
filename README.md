@@ -9,6 +9,7 @@ Farmers' Market Manager is a full stack event management system built in Node.JS
 ## Table of Contents
 * [Description](#description)
 * [Installation](#installation)
+* [Additional Technology](#additional-echnology)
 * [Future Developments](#future-developments)
 * [Usage](#usage)
 * [GitHub](#github)
@@ -28,6 +29,9 @@ npm install <package name>
 ```
 
 with the npm packages name following install.
+
+## Additional Technology
+We implemented Cloudinary's upload widget as our additional technology.  It allowed us to simply grab and store an image url on vendor and product creation and serve that image via the web. 
 
 ## Future Developments
 V1 allows for the creation of a vendor and associated products, but it doesn't allow for the vendor to add themselves to an event;  currently this feature can only be implemented from the backend and is our first goal for future development.  After that, we would like to implement an Event Administrator feature which would allow for the events to be managed individually.  Beyond that we plan to create a "User" feature which would allow customers to create an account and reserve/purchase items from Vendors.
