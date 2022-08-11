@@ -23,6 +23,7 @@ router.post("/",(req,res)=>{
         productName:req.body.productName,
         description:req.body.description,
         inStock:req.body.inStock,
+        img_url:req.body.img_url,
         VendorId:req.session.vendor.id
     }).then(data=>{
         res.json(data)

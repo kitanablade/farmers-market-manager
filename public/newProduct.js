@@ -1,4 +1,4 @@
-var imgUrl = "https://res.cloudinary.com/hawker-image-db/image/upload/v1659995561/zkwtm7jmgid1uay9u3kd.png";
+var imgUrl = "https://cdn.dribbble.com/userupload/2942840/file/original-43e13aef290e1e7fb39bf06051313f34.jpg?resize=400x0";
 
 var myWidget = cloudinary.createUploadWidget({
   cloudName: 'hawker-image-db', 
@@ -11,8 +11,9 @@ var myWidget = cloudinary.createUploadWidget({
   }
 )
 
-document.getElementById("upload_widget").addEventListener("click", e=>{
+document.getElementById("upload_widget_product").addEventListener("click", e=>{
   e.preventDefault();
+  e.stopPropagation();
     myWidget.open();
   }, false);
 
@@ -24,7 +25,6 @@ document.getElementById("btnAddProduct").addEventListener("click",e=>{
         inStock: eval(document.querySelector("#update-inStock").value),
         img_url:imgUrl
     }
-    console.log("BUTTON PRESSED")
     fetch("/api/products",{
         method:"POST",
         body:JSON.stringify(productObj),

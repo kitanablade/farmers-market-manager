@@ -1,6 +1,6 @@
 :root {
   --primary: #283538;
-  --secondary: #E7C78E;
+  --secondary: rgb(251, 211, 155);
   --tertiary: #9B8063;
   --light: #AFC1AB;
 }
@@ -30,20 +30,20 @@ header h1 {
 }
 
 h1 {
-  color: #f0b44e;
+  color: purple;
   justify-content: center;
   padding: 30px;
   margin: 50px;
 }
 
 h2 {
-  color: #E7C78E;
+  color: orangered;
   font-family: 'Rozha One', serif;
 
 }
 
 h3 {
-  color: #f0b44e;
+  color: purple;
   font-family: 'Rozha One', serif;
   margin: 29px;
 }
@@ -229,14 +229,14 @@ button#upload_widget.cloudinary-button {
   display: none;
 }
 
-#signup-form {
+/* #signup-form {
 /*will add more to this later, I think. I'd like the photo to align w/ the box */
 
-#button:hover {
+/* #button:hover {
   background-color: rgb(213, 4, 255);
   text-decoration: none;
 
-}
+} */
 
 /* Media!!
 
